@@ -1,0 +1,5 @@
+# Claude Code settings and temp files
+.claude/
+
+# Playwright MCP screenshots
+.playwright-mcp/
