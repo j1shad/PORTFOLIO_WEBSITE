@@ -90,50 +90,81 @@ function getReadingTime(content: string) {
 
 <style is:global>
   .prose {
-    @apply text-foreground;
+    color: hsl(var(--foreground));
   }
 
   .prose h2 {
-    @apply text-2xl font-bold text-foreground mt-8 mb-4;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-top: 2rem;
+    margin-bottom: 1rem;
   }
 
   .prose h3 {
-    @apply text-xl font-bold text-foreground mt-6 mb-3;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
   }
 
   .prose p {
-    @apply text-muted-foreground leading-relaxed mb-4;
+    color: hsl(var(--muted-foreground));
+    line-height: 1.75;
+    margin-bottom: 1rem;
   }
 
   .prose a {
-    @apply text-primary hover:underline;
+    color: hsl(var(--primary));
+    text-decoration: underline;
+  }
+
+  .prose a:hover {
+    text-decoration: none;
   }
 
   .prose code {
-    @apply bg-secondary px-2 py-1 rounded text-sm;
+    background-color: hsl(var(--secondary));
+    padding: 0.125rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
   }
 
   .prose pre {
-    @apply bg-card border border-border rounded-lg p-4 overflow-x-auto my-6;
+    background-color: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.5rem;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
   }
 
   .prose pre code {
-    @apply bg-transparent p-0;
+    background-color: transparent;
+    padding: 0;
   }
 
   .prose ul, .prose ol {
-    @apply text-muted-foreground mb-4 ml-6;
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 1rem;
+    margin-left: 1.5rem;
   }
 
   .prose li {
-    @apply mb-2;
+    margin-bottom: 0.5rem;
   }
 
   .prose strong {
-    @apply text-foreground font-semibold;
+    color: hsl(var(--foreground));
+    font-weight: 600;
   }
 
   .prose blockquote {
-    @apply border-l-4 border-primary pl-4 italic text-muted-foreground my-6;
+    border-left: 4px solid hsl(var(--primary));
+    padding-left: 1rem;
+    font-style: italic;
+    color: hsl(var(--muted-foreground));
+    margin: 1.5rem 0;
   }
 </style>
