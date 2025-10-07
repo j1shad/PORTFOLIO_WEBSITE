@@ -1,96 +1,89 @@
 ---
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce solution built with React, Node.js, and PostgreSQL. Features include user authentication, payment processing, and admin dashboard.",
-    technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "AWS"],
+    title: "Real-Time Data Pipeline",
+    description: "Scalable streaming data pipeline processing millions of events daily using Kafka and Spark. Implemented efficient data transformations and real-time analytics with sub-second latency.",
+    technologies: ["Apache Kafka", "Spark Streaming", "Python", "AWS", "PostgreSQL"],
+    category: "Data Engineering",
     image: "/api/placeholder/400/250",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/johndoe/ecommerce"
+    githubUrl: "https://github.com/jasonacquah/data-pipeline"
   },
   {
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-    technologies: ["Vue.js", "Express", "Socket.io", "MongoDB"],
+    title: "Customer Analytics Platform",
+    description: "End-to-end analytics solution with automated ETL pipelines, dimensional modeling, and interactive dashboards. Reduced reporting time by 70% and improved data quality.",
+    technologies: ["Airflow", "dbt", "Snowflake", "Tableau", "Python"],
+    category: "Analytics",
     image: "/api/placeholder/400/250",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/johndoe/taskmanager"
+    githubUrl: "https://github.com/jasonacquah/analytics-platform"
   },
   {
-    title: "Weather Dashboard",
-    description: "A responsive weather dashboard that displays current conditions and forecasts using multiple weather APIs with beautiful data visualizations.",
-    technologies: ["JavaScript", "Chart.js", "Weather API", "CSS3"],
+    title: "ML Model Deployment Pipeline",
+    description: "Automated ML model training and deployment pipeline with monitoring and A/B testing capabilities. Handles feature engineering, model versioning, and serving predictions at scale.",
+    technologies: ["MLflow", "Docker", "FastAPI", "Scikit-learn", "AWS"],
+    category: "Machine Learning",
     image: "/api/placeholder/400/250",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/johndoe/weather"
+    githubUrl: "https://github.com/jasonacquah/ml-pipeline"
   },
   {
-    title: "Portfolio Website",
-    description: "A modern, responsive portfolio website built with Astro and Tailwind CSS, featuring dark mode toggle and smooth animations.",
-    technologies: ["Astro", "Tailwind CSS", "TypeScript"],
+    title: "Data Lake Architecture",
+    description: "Designed and implemented a modern data lake on AWS with efficient data partitioning, cataloging, and governance. Enables self-service analytics for multiple teams.",
+    technologies: ["AWS S3", "Glue", "Athena", "Lake Formation", "Terraform"],
+    category: "Data Engineering",
     image: "/api/placeholder/400/250",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/johndoe/portfolio"
+    githubUrl: "https://github.com/jasonacquah/data-lake"
   }
 ];
 ---
 
-<section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800">
+<section id="projects" class="py-20 bg-secondary/30">
   <div class="container mx-auto px-6">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-white mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-center text-foreground mb-16">
         Featured Projects
       </h2>
-      
+
       <div class="grid md:grid-cols-2 gap-8">
         {projects.map((project, index) => (
-          <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-            <div class="h-48 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
-              <div class="text-white text-6xl font-bold opacity-20">
+          <div class="bg-card border border-border rounded-xl overflow-hidden hover:shadow-xl hover:border-primary/50 transition-all duration-300 transform hover:-translate-y-1">
+            <div class="h-48 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center border-b border-border">
+              <div class="text-primary/20 text-6xl font-bold">
                 {index + 1}
               </div>
             </div>
-            
+
             <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                {project.title}
-              </h3>
-              
-              <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+              <div class="flex items-center gap-2 mb-3">
+                <h3 class="text-xl font-bold text-foreground">
+                  {project.title}
+                </h3>
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">
+                  {project.category}
+                </span>
+              </div>
+
+              <p class="text-muted-foreground mb-4 leading-relaxed text-sm">
                 {project.description}
               </p>
-              
+
               <div class="flex flex-wrap gap-2 mb-6">
                 {project.technologies.map((tech) => (
-                  <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm">
+                  <span class="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-xs">
                     {tech}
                   </span>
                 ))}
               </div>
-              
+
               <div class="flex gap-4">
-                <a 
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                  Live Demo
-                </a>
-                
-                <a 
+                <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex items-center gap-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 px-4 py-2 rounded-lg transition-colors"
+                  class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
                 >
                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
                   </svg>
-                  GitHub
+                  View Code
                 </a>
               </div>
             </div>
