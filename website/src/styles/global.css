@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @layer base {
-  /* Light theme - Minimalist and professional */
+  /* Light theme - Minimalist and professional with purple accents */
   :root {
     --background: 0 0% 100%;        /* Pure white #FFFFFF */
     --foreground: 240 10% 10%;       /* Near black #18181B */
@@ -9,28 +9,33 @@
     --card-foreground: 240 10% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 10%;
-    --primary: 217 91% 60%;          /* Blue #3B82F6 */
+    --primary: 262 83% 58%;          /* Purple #A855F7 */
     --primary-foreground: 0 0% 100%;
     --secondary: 240 5% 96%;         /* Light gray #F5F5F6 */
     --secondary-foreground: 240 10% 10%;
     --muted: 240 5% 96%;
     --muted-foreground: 240 5% 45%;  /* Medium gray #71717A */
-    --accent: 217 91% 60%;
+    --accent: 280 90% 65%;           /* Light purple accent */
     --accent-foreground: 0 0% 100%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
     --border: 240 6% 90%;            /* Subtle border #E4E4E7 */
     --input: 240 6% 90%;
-    --ring: 217 91% 60%;
+    --ring: 262 83% 58%;
     --radius: 0.5rem;
-    --chart-1: 217 91% 60%;
+    --shadow: 262 80% 50%;           /* Purple shadow */
+    --shadow-sm: 0 2px 8px hsla(262, 80%, 50%, 0.15);
+    --shadow-md: 0 4px 12px hsla(262, 80%, 50%, 0.2);
+    --shadow-lg: 0 8px 24px hsla(262, 80%, 50%, 0.25);
+    --shadow-xl: 0 12px 36px hsla(262, 80%, 50%, 0.3);
+    --chart-1: 262 83% 58%;
     --chart-2: 142 71% 45%;
-    --chart-3: 262 83% 58%;
+    --chart-3: 280 90% 65%;
     --chart-4: 38 92% 50%;
     --chart-5: 340 75% 55%;
   }
 
-  /* Dark theme - Minimalist and professional (default) */
+  /* Dark theme - Minimalist and professional with purple accents (default) */
   .dark {
     --background: 240 10% 4%;        /* Deep dark #09090B */
     --foreground: 0 0% 90%;          /* Light gray #E4E4E7 */
@@ -38,22 +43,27 @@
     --card-foreground: 0 0% 90%;
     --popover: 240 6% 10%;
     --popover-foreground: 0 0% 90%;
-    --primary: 217 91% 60%;          /* Blue #3B82F6 */
+    --primary: 262 83% 58%;          /* Purple #A855F7 */
     --primary-foreground: 0 0% 100%;
     --secondary: 240 4% 16%;         /* Subtle gray #27272A */
     --secondary-foreground: 0 0% 90%;
     --muted: 240 4% 16%;
     --muted-foreground: 240 5% 65%;  /* Medium gray #A1A1AA */
-    --accent: 217 91% 60%;
+    --accent: 280 90% 65%;           /* Light purple accent */
     --accent-foreground: 0 0% 100%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 100%;
     --border: 240 4% 16%;            /* Subtle border #27272A */
     --input: 240 4% 16%;
-    --ring: 217 91% 60%;
-    --chart-1: 217 91% 60%;
+    --ring: 262 83% 58%;
+    --shadow: 262 80% 50%;           /* Purple shadow */
+    --shadow-sm: 0 2px 8px hsla(262, 80%, 50%, 0.2);
+    --shadow-md: 0 4px 12px hsla(262, 80%, 50%, 0.3);
+    --shadow-lg: 0 8px 24px hsla(262, 80%, 50%, 0.4);
+    --shadow-xl: 0 12px 36px hsla(262, 80%, 50%, 0.5);
+    --chart-1: 262 83% 58%;
     --chart-2: 142 71% 45%;
-    --chart-3: 262 83% 58%;
+    --chart-3: 280 90% 65%;
     --chart-4: 38 92% 50%;
     --chart-5: 340 75% 55%;
   }
@@ -69,5 +79,97 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Animation utilities */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.6s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.6s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.6s ease-out;
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Purple shadow utilities */
+  .shadow-purple-sm {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .shadow-purple-md {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-purple-lg {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .shadow-purple-xl {
+    box-shadow: var(--shadow-xl);
+  }
+
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
   }
 }

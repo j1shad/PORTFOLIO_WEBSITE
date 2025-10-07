@@ -1,15 +1,18 @@
 ---
 ---
 
-<section id="contact" class="py-20 bg-background">
+<section id="contact" class="min-h-screen py-20 pt-32 bg-background">
   <div class="container mx-auto px-6">
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-bold text-center text-foreground mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-center text-foreground mb-4 animate-fade-in">
         Get In Touch
       </h2>
+      <p class="text-center text-muted-foreground mb-16 animate-slide-in-left">
+        Let's discuss your next data engineering project
+      </p>
 
       <div class="grid md:grid-cols-2 gap-12">
-        <div class="space-y-8">
+        <div class="space-y-8 animate-slide-in-left">
           <div>
             <h3 class="text-2xl font-bold text-foreground mb-4">
               Let's work together
@@ -21,8 +24,8 @@
           </div>
 
           <div class="space-y-4">
-            <a href="mailto:jason.acquah@example.com" class="flex items-center gap-4 group">
-              <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+            <a href="mailto:jason.acquah@example.com" class="flex items-center gap-4 group shadow-purple-sm hover-lift transition-smooth p-2 rounded-lg">
+              <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-smooth shadow-purple-sm">
                 <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
@@ -59,7 +62,7 @@
           </div>
         </div>
 
-        <div class="bg-card border border-border rounded-xl p-8">
+        <div class="bg-card border border-border rounded-xl p-8 shadow-purple-lg animate-slide-in-right">
           <form
             action="https://formspree.io/f/YOUR_FORM_ID"
             method="POST"
@@ -110,7 +113,7 @@
 
             <button
               type="submit"
-              class="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
+              class="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-6 rounded-lg transition-smooth hover-lift shadow-purple-md"
             >
               Send Message
             </button>
