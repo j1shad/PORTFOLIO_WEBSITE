@@ -1,15 +1,21 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
+import react from '@astrojs/react';
 
 import tailwindcss from '@tailwindcss/vite';
 
-import react from '@astrojs/react';
-
 // https://astro.build/config
 export default defineConfig({
-  vite: {
-    plugins: [tailwindcss()]
-  },
+  // The official Astro integrations are the best way to add features.
+  // We'll use both the Tailwind and React integrations here.
+  // These settings are crucial for deploying your project to GitHub Pages
+  // with a custom base path.
+  // site: 'https://yourusername.github.io',
+  // base: '/portfolio-website',
+  integrations: [
+    react(),    // This is required to use React components, including Shadcn/ui.
+  ],
 
-  integrations: [react()]
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
