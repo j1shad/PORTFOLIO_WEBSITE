@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
+import mdx from '@astrojs/mdx';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -13,6 +14,7 @@ export default defineConfig({
   // base: '/portfolio-website',
   integrations: [
     react(),    // This is required to use React components, including Shadcn/ui.
+    mdx(),      // MDX support for blog posts
   ],
 
   vite: {
