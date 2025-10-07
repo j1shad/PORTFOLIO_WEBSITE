@@ -1,20 +1,19 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 
 import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  // The official Astro integrations are the best way to add features.
-  // We'll use both the Tailwind and React integrations here.
-  // These settings are crucial for deploying your project to GitHub Pages
-  // with a custom base path.
-  // site: 'https://yourusername.github.io',
+  site: 'https://jasonacquah.github.io',
+  // Uncomment the line below and update if deploying to a subdirectory
   // base: '/portfolio-website',
   integrations: [
-    react(),    // This is required to use React components, including Shadcn/ui.
+    react(),    // React components support, including Shadcn/ui
     mdx(),      // MDX support for blog posts
+    sitemap(),  // Automatic sitemap generation
   ],
 
   vite: {
