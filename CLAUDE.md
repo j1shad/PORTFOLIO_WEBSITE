@@ -6,6 +6,35 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Personal portfolio website showcasing data engineering, data science, and analytics work. Built with Astro, React, Shadcn and Tailwind CSS v4.
 
+### Current Implementation Status
+
+- Basic component structure in place (Hero, About, Projects, Contact, Footer, Header)
+- Theme toggle system implemented with localStorage persistence
+- React icons integration for skill badges
+- Profile photo with animated decorative elements
+- Contact form with client-side validation (needs email service integration)
+
+### Planned Features
+
+- Minimalist dark theme as default with professional light mode alternative
+- Blog system with Astro content collections, MDX support, and RSS feed
+- Email integration for contact form (Formspree/EmailJS)
+- Project filtering by category (Data Engineering, Machine Learning, Analytics)
+- Dynamic project detail pages with case studies
+- Resume download functionality
+- SEO optimization with meta tags and sitemap
+- Image optimization with Astro Image component
+- Back to top button
+
+### Known Issues to Address
+
+- Duplicate flex wrapper in About component (line 36-37)
+- Generic placeholder content needs customization for data engineering focus
+- Contact form needs actual email service integration
+- Projects use placeholder images and generic content
+- Theme colors need refinement for minimalist professional aesthetic
+- Analytics component has placeholder GA_MEASUREMENT_ID
+
 ## Working Directory
 
 All npm commands must be run from the `website/` subdirectory, not the repository root.
