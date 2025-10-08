@@ -23,7 +23,7 @@ function formatDate(date: Date) {
   <main class="min-h-screen bg-background pt-24 pb-20">
     <div class="container mx-auto px-6">
       <div class="max-w-4xl mx-auto">
-        <header class="mb-16">
+        <header class="mb-16 animate-fade-in">
           <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Blog
           </h1>
@@ -33,8 +33,8 @@ function formatDate(date: Date) {
         </header>
 
         <div class="space-y-8">
-          {sortedPosts.map((post) => (
-            <article class="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg hover:border-primary/50 transition-all duration-300">
+          {sortedPosts.map((post, index) => (
+            <article class={`bg-card border border-border rounded-lg overflow-hidden shadow-purple-md hover:shadow-purple-lg hover-lift hover:border-primary/50 transition-all duration-300 ${index % 2 === 0 ? 'animate-slide-in-left' : 'animate-slide-in-right'}`} style={`animation-delay: ${index * 0.1}s`}>
               <a href={`/blog/${post.slug}`} class="block">
                 <div class="p-6">
                   <div class="flex items-center gap-3 mb-3">

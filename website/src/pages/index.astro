@@ -20,7 +20,7 @@ import Footer from '../components/Footer.astro';
             Hi, I'm <span class="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient">Jason Acquah</span>
           </h1>
           <p class="text-2xl md:text-3xl text-muted-foreground mb-8 animate-slide-in-left">
-            Data Engineer & Analytics Professional
+            <span id="cycling-role" class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold"></span> & Analytics Professional
           </p>
           <p class="text-lg md:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed animate-slide-in-right">
             Building reliable data pipelines and translating data into practical solutions. Passionate about scalable systems, insightful analytics, and data-driven innovation.
@@ -113,4 +113,41 @@ import Footer from '../components/Footer.astro';
     background-size: 200% auto;
     animation: gradient 3s ease infinite;
   }
+
+  @keyframes fadeInOut {
+    0%, 100% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    10%, 90% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .role-fade {
+    animation: fadeInOut 3s ease-in-out;
+  }
 </style>
+
+<script>
+  const roles = ['Data Engineer', 'Data Analyst', 'Data Scientist'];
+  let currentRoleIndex = 0;
+  const roleElement = document.getElementById('cycling-role');
+
+  function updateRole() {
+    if (roleElement) {
+      roleElement.classList.add('role-fade');
+      roleElement.textContent = roles[currentRoleIndex];
+
+      currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+
+      setTimeout(() => {
+        roleElement.classList.remove('role-fade');
+      }, 3000);
+    }
+  }
+
+  updateRole();
+  setInterval(updateRole, 3000);
+</script>
