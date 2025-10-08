@@ -135,60 +135,143 @@ import {
             </div>
           </a>
 
-          <!-- <a
-            href="https://www.credly.com/badges/your-databricks-cert"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="bg-card border border-border rounded-xl p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
+          <button
+            type="button"
+            data-cert-pdf="/assets/Blossom-DataScience-cert.pdf"
+            data-cert-title="Data Science Certification"
+            class="cert-button bg-card border border-border rounded-xl p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
             style="animation-delay: 0.2s"
           >
             <div class="flex flex-col items-center text-center">
-              <div class="w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/10 rounded-full flex items-center justify-center mb-4 shadow-purple-lg group-hover:scale-110 transition-smooth">
-                <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
+              <div class="w-32 h-32 mb-4 group-hover:scale-110 transition-smooth">
+                <img
+                  src="/assets/blossom-badge.png"
+                  alt="Data Science Certification"
+                  class="w-full h-full object-contain"
+                />
               </div>
               <h4 class="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                Databricks Certified Associate
+                Data Science Certification
               </h4>
               <p class="text-sm text-muted-foreground mb-3">
-                Databricks
+                Blossom Academy
               </p>
               <p class="text-xs text-muted-foreground">
                 Issued: 2024
               </p>
             </div>
-          </a> -->
+          </button>
 
-          <!-- <a
-            href="https://www.credly.com/badges/your-snowflake-cert"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="bg-card border border-border rounded-xl p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
+          <button
+            type="button"
+            data-cert-pdf="/assets/Blossom-DataAnalysis-cert.pdf"
+            data-cert-title="Data Analysis Certification"
+            class="cert-button bg-card border border-border rounded-xl p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
             style="animation-delay: 0.3s"
           >
             <div class="flex flex-col items-center text-center">
-              <div class="w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/10 rounded-full flex items-center justify-center mb-4 shadow-purple-lg group-hover:scale-110 transition-smooth">
-                <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                </svg>
+              <div class="w-32 h-32 mb-4 group-hover:scale-110 transition-smooth">
+                <img
+                  src="/assets/blossom-badge.png"
+                  alt="Data Analysis Certification"
+                  class="w-full h-full object-contain"
+                />
               </div>
               <h4 class="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                SnowPro Core Certification
+                Data Analysis Certification
               </h4>
               <p class="text-sm text-muted-foreground mb-3">
-                Snowflake
+                Blossom Academy
               </p>
               <p class="text-xs text-muted-foreground">
-                Issued: 2023
+                Issued: 2024
               </p>
             </div>
-          </a> -->
+          </button>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- PDF Viewer Modal -->
+<div id="pdf-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-background/80 backdrop-blur-sm">
+  <div class="relative w-full h-full max-w-7xl max-h-[90vh] m-4 bg-card border border-border rounded-xl shadow-purple-xl overflow-hidden">
+    <div class="flex items-center justify-between p-4 border-b border-border bg-card/95 backdrop-blur-sm">
+      <h3 id="modal-title" class="text-xl font-bold text-foreground">Certificate</h3>
+      <button
+        id="close-modal"
+        class="p-2 text-muted-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary"
+        aria-label="Close"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="h-[calc(100%-4rem)]">
+      <iframe
+        id="pdf-viewer"
+        class="w-full h-full"
+        type="application/pdf"
+      ></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('pdf-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const pdfViewer = document.getElementById('pdf-viewer') as HTMLIFrameElement;
+  const closeModal = document.getElementById('close-modal');
+  const certButtons = document.querySelectorAll('.cert-button');
+
+  certButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const pdfUrl = button.getAttribute('data-cert-pdf');
+      const title = button.getAttribute('data-cert-title');
+
+      if (pdfUrl && title && modalTitle && pdfViewer && modal) {
+        modalTitle.textContent = title;
+        pdfViewer.src = pdfUrl;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  closeModal?.addEventListener('click', () => {
+    if (modal && pdfViewer) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      pdfViewer.src = '';
+      document.body.style.overflow = '';
+    }
+  });
+
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      if (pdfViewer) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        pdfViewer.src = '';
+        document.body.style.overflow = '';
+      }
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+      if (pdfViewer) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        pdfViewer.src = '';
+        document.body.style.overflow = '';
+      }
+    }
+  });
+</script>
 
 <style>
   @keyframes float {
