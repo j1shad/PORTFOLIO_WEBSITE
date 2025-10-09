@@ -1,5 +1,6 @@
 # Claude Code settings and temp files
 .claude/
+*.local.json
 
 # Playwright MCP screenshots
 .playwright-mcp/
