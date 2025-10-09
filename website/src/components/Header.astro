@@ -5,9 +5,9 @@ const currentPath = Astro.url.pathname;
 const base = import.meta.env.BASE_URL;
 ---
 <header class="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border shadow-purple-sm">
-  <nav class="container mx-auto px-4 sm:px-6 py-4">
+  <nav class="container mx-auto px-4 sm:px-6 py-3 md:py-4">
     <div class="flex items-center justify-between">
-      <a href={base} class="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent hover:scale-110 transition-transform">
+      <a href={base} class="text-xl sm:text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent hover:scale-110 transition-transform">
         JA
       </a>
 
@@ -60,8 +60,8 @@ const base = import.meta.env.BASE_URL;
       </div>
     </div>
 
-    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-      <div class="flex flex-col space-y-4">
+    <div id="mobile-menu" class="md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-card/95 backdrop-blur-md border-t border-border shadow-lg rounded-b-xl mx-4" style="max-height: 0;">
+      <div class="flex flex-col space-y-3 p-6">
         <a href={base} class={`text-muted-foreground hover:text-primary transition-smooth ${currentPath === base || currentPath === base + '/' ? 'text-primary font-semibold' : ''}`}>Home</a>
         <a href={`${base}/about`} class={`text-muted-foreground hover:text-primary transition-smooth ${currentPath === `${base}/about` || currentPath === `${base}/about/` ? 'text-primary font-semibold' : ''}`}>About</a>
         <a href={`${base}/projects`} class={`text-muted-foreground hover:text-primary transition-smooth ${currentPath === `${base}/projects` || currentPath === `${base}/projects/` ? 'text-primary font-semibold' : ''}`}>Projects</a>
@@ -74,15 +74,24 @@ const base = import.meta.env.BASE_URL;
 
 <script>
   const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenu = document.getElementById('mobile-menu') as HTMLElement;
 
   mobileMenuButton?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
+    if (mobileMenu) {
+      const isOpen = mobileMenu.style.maxHeight !== '0px';
+      if (isOpen) {
+        mobileMenu.style.maxHeight = '0px';
+      } else {
+        mobileMenu.style.maxHeight = '400px';
+      }
+    }
   });
 
   document.querySelectorAll('#mobile-menu a').forEach(link => {
     link.addEventListener('click', () => {
-      mobileMenu?.classList.add('hidden');
+      if (mobileMenu) {
+        mobileMenu.style.maxHeight = '0px';
+      }
     });
   });
 </script>

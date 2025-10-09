@@ -34,8 +34,8 @@ function getReadingTime(content: string) {
 ---
 
 <Layout title={`${entry.data.title} - Jason Acquah`}>
-  <main class="min-h-screen bg-background pt-24 pb-20">
-    <article class="container mx-auto px-6">
+  <main class="min-h-screen bg-background pt-20 sm:pt-32 pb-20">
+    <article class="container mx-auto px-4 sm:px-6">
       <div class="max-w-3xl mx-auto">
         <header class="mb-12">
           <a
@@ -58,7 +58,7 @@ function getReadingTime(content: string) {
             </span>
           </div>
 
-          <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             {entry.data.title}
           </h1>
 
@@ -71,7 +71,7 @@ function getReadingTime(content: string) {
           </div>
         </header>
 
-        <div class="prose prose-lg dark:prose-invert max-w-none">
+        <div class="prose sm:prose-lg dark:prose-invert max-w-none">
           <Content />
         </div>
 

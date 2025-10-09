@@ -15,31 +15,31 @@ import {
 const base = import.meta.env.BASE_URL;
 ---
 
-<section id="about" class="min-h-screen py-20 pt-32 bg-background">
-  <div class="container mx-auto px-6">
+<section id="about" class="min-h-screen py-20 pt-20 sm:pt-32 bg-background">
+  <div class="container mx-auto px-4 sm:px-6">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-bold text-center text-foreground mb-4 animate-fade-in">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-foreground mb-4 animate-fade-in">
         About Me
       </h2>
-      <p class="text-center text-muted-foreground mb-16 animate-slide-in-left">
+      <p class="text-center text-muted-foreground mb-12 sm:mb-16 animate-slide-in-left">
         Passionate about transforming data into actionable insights
       </p>
 
-      <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
         <div class="space-y-6 animate-slide-in-left">
-          <p class="text-lg text-muted-foreground leading-relaxed">
+          <p class="text-base md:text-lg text-muted-foreground leading-relaxed">
             Data engineer with expertise in building scalable data pipelines and analytics
             solutions. I specialize in transforming raw data into actionable insights through
             modern data engineering practices and cloud technologies.
           </p>
 
-          <p class="text-lg text-muted-foreground leading-relaxed">
+          <p class="text-base md:text-lg text-muted-foreground leading-relaxed">
             My work focuses on designing robust ETL processes, optimizing data workflows,
             and implementing analytics solutions that drive business decisions. I'm passionate
             about data quality, performance optimization, and building systems that scale.
           </p>
 
-          <div class="flex flex-wrap gap-6 mt-8">
+          <div class="flex flex-wrap gap-3 sm:gap-4 md:gap-6 mt-8">
             <div class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth hover:scale-110 shadow-purple-sm hover:shadow-purple-md p-2 rounded-lg">
               <SiPython className="w-6 h-6" />
               <span class="text-sm font-medium">Python</span>
@@ -100,31 +100,31 @@ const base = import.meta.env.BASE_URL;
         </div>
       </div>
 
-      <div class="mt-24">
-        <h3 class="text-3xl md:text-4xl font-bold text-center text-foreground mb-4 animate-fade-in">
+      <div class="mt-16 sm:mt-24">
+        <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-foreground mb-4 animate-fade-in">
           Certifications
         </h3>
-        <p class="text-center text-muted-foreground mb-12 animate-slide-in-left">
+        <p class="text-center text-muted-foreground mb-8 sm:mb-12 animate-slide-in-left">
           Professional credentials and continuous learning
         </p>
 
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           <a
             href="https://www.credly.com/badges/aab33980-01df-4a8e-882b-4489ba023e2e"
             target="_blank"
             rel="noopener noreferrer"
-            class="bg-card border border-border rounded-xl p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
+            class="bg-card border border-border rounded-xl p-4 sm:p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
             style="animation-delay: 0.1s"
           >
             <div class="flex flex-col items-center text-center">
-              <div class="w-32 h-32 mb-4 group-hover:scale-110 transition-smooth">
+              <div class="w-24 h-24 sm:w-32 sm:h-32 mb-4 group-hover:scale-110 transition-smooth">
                 <img
                   src={`${base}/assets/aws-certified-data-engineer-associate.png`}
                   alt="AWS Certified Data Engineer - Associate"
                   class="w-full h-full object-contain"
                 />
               </div>
-              <h4 class="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+              <h4 class="text-base sm:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                 AWS Certified Data Engineer - Associate
               </h4>
               <p class="text-sm text-muted-foreground mb-3">
@@ -139,18 +139,18 @@ const base = import.meta.env.BASE_URL;
             href="https://intranet.alxswe.com/certificates/mzS8cMH7re"
             target="_blank"
             rel="noopener noreferrer"
-            class="bg-card border border-border rounded-xl p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
+            class="bg-card border border-border rounded-xl p-4 sm:p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
             style="animation-delay: 0.4s"
           >
             <div class="flex flex-col items-center text-center">
-              <div class="w-32 h-32 mb-4 group-hover:scale-110 transition-smooth">
+              <div class="w-24 h-24 sm:w-32 sm:h-32 mb-4 group-hover:scale-110 transition-smooth">
                 <img
                   src={`${base}/assets/Alx-badge.svg`}
                   alt="ALX Data Science Certification"
                   class="w-full h-full object-contain"
                 />
               </div>
-              <h4 class="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+              <h4 class="text-base sm:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                 Data Science Certification
               </h4>
               <p class="text-sm text-muted-foreground mb-3">
@@ -166,18 +166,18 @@ const base = import.meta.env.BASE_URL;
             href="https://intranet.alxswe.com/certificates/nCHmR67shJ"
             target="_blank"
             rel="noopener noreferrer"
-            class="bg-card border border-border rounded-xl p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
+            class="bg-card border border-border rounded-xl p-4 sm:p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
             style="animation-delay: 0.5s"
           >
             <div class="flex flex-col items-center text-center">
-              <div class="w-32 h-32 mb-4 group-hover:scale-110 transition-smooth">
+              <div class="w-24 h-24 sm:w-32 sm:h-32 mb-4 group-hover:scale-110 transition-smooth">
                 <img
                   src={`${base}/assets/Alx-badge.svg`}
                   alt="ALX Professional Skills Certification"
                   class="w-full h-full object-contain"
                 />
               </div>
-              <h4 class="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+              <h4 class="text-base sm:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                 Professional Skills Certification
               </h4>
               <p class="text-sm text-muted-foreground mb-3">
@@ -193,18 +193,18 @@ const base = import.meta.env.BASE_URL;
             type="button"
             data-cert-pdf={`${base}/assets/Blossom-DataScience-cert.pdf`}
             data-cert-title="Data Science Certification"
-            class="cert-button bg-card border border-border rounded-xl p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
+            class="cert-button bg-card border border-border rounded-xl p-4 sm:p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
             style="animation-delay: 0.2s"
           >
             <div class="flex flex-col items-center text-center">
-              <div class="w-32 h-32 mb-4 group-hover:scale-110 transition-smooth">
+              <div class="w-24 h-24 sm:w-32 sm:h-32 mb-4 group-hover:scale-110 transition-smooth">
                 <img
                   src={`${base}/assets/blossom-badge.png`}
                   alt="Data Science Certification"
                   class="w-full h-full object-contain"
                 />
               </div>
-              <h4 class="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+              <h4 class="text-base sm:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                 Data Science Certification
               </h4>
               <p class="text-sm text-muted-foreground mb-3">
@@ -220,18 +220,18 @@ const base = import.meta.env.BASE_URL;
             type="button"
             data-cert-pdf={`${base}/assets/Blossom-DataAnalysis-cert.pdf`}
             data-cert-title="Data Analysis Certification"
-            class="cert-button bg-card border border-border rounded-xl p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
+            class="cert-button bg-card border border-border rounded-xl p-4 sm:p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
             style="animation-delay: 0.3s"
           >
             <div class="flex flex-col items-center text-center">
-              <div class="w-32 h-32 mb-4 group-hover:scale-110 transition-smooth">
+              <div class="w-24 h-24 sm:w-32 sm:h-32 mb-4 group-hover:scale-110 transition-smooth">
                 <img
                   src={`${base}/assets/blossom-badge.png`}
                   alt="Data Analysis Certification"
                   class="w-full h-full object-contain"
                 />
               </div>
-              <h4 class="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+              <h4 class="text-base sm:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                 Data Analysis Certification
               </h4>
               <p class="text-sm text-muted-foreground mb-3">

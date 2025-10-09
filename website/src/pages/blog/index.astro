@@ -2,6 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
+const base = import.meta.env.BASE_URL;
+
 const allPosts = await getCollection('blog', ({ data }) => {
   return data.draft !== true;
 });
@@ -20,11 +22,11 @@ function formatDate(date: Date) {
 ---
 
 <Layout title="Blog - Jason Acquah">
-  <main class="min-h-screen bg-background pt-24 pb-20">
-    <div class="container mx-auto px-6">
+  <main class="min-h-screen bg-background pt-20 sm:pt-32 pb-20">
+    <div class="container mx-auto px-4 sm:px-6">
       <div class="max-w-4xl mx-auto">
-        <header class="mb-16 animate-fade-in">
-          <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+        <header class="mb-12 sm:mb-16 animate-fade-in">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             Blog
           </h1>
           <p class="text-lg text-muted-foreground">
@@ -32,11 +34,11 @@ function formatDate(date: Date) {
           </p>
         </header>
 
-        <div class="space-y-8">
+        <div class="space-y-6 sm:space-y-8">
           {sortedPosts.map((post, index) => (
             <article class={`bg-card border border-border rounded-lg overflow-hidden shadow-purple-md hover:shadow-purple-lg hover-lift hover:border-primary/50 transition-all duration-300 ${index % 2 === 0 ? 'animate-slide-in-left' : 'animate-slide-in-right'}`} style={`animation-delay: ${index * 0.1}s`}>
-              <a href={`/blog/${post.slug}`} class="block">
-                <div class="p-6">
+              <a href={`${base}/blog/${post.slug}`} class="block">
+                <div class="p-4 sm:p-6">
                   <div class="flex items-center gap-3 mb-3">
                     <time class="text-sm text-muted-foreground">
                       {formatDate(post.data.publishDate)}
@@ -47,7 +49,7 @@ function formatDate(date: Date) {
                     </span>
                   </div>
 
-                  <h2 class="text-2xl font-bold text-foreground mb-3 hover:text-primary transition-colors">
+                  <h2 class="text-xl sm:text-2xl font-bold text-foreground mb-3 hover:text-primary transition-colors">
                     {post.data.title}
                   </h2>
 
