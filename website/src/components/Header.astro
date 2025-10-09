@@ -5,7 +5,7 @@ const currentPath = Astro.url.pathname;
 const base = import.meta.env.BASE_URL;
 ---
 <header class="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border shadow-purple-sm">
-  <nav class="container mx-auto px-6 py-4">
+  <nav class="container mx-auto px-4 sm:px-6 py-4">
     <div class="flex items-center justify-between">
       <a href={base} class="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent hover:scale-110 transition-transform">
         JA
@@ -20,32 +20,32 @@ const base = import.meta.env.BASE_URL;
           {currentPath === base || currentPath === base + '/' ? <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span> : null}
         </a>
         <a
-          href={`${base}about`}
-          class={`text-muted-foreground hover:text-primary transition-smooth relative ${currentPath === `${base}about` || currentPath === `${base}about/` ? 'text-primary font-semibold' : ''}`}
+          href={`${base}/about`}
+          class={`text-muted-foreground hover:text-primary transition-smooth relative ${currentPath === `${base}/about` || currentPath === `${base}/about/` ? 'text-primary font-semibold' : ''}`}
         >
           About
-          {currentPath === `${base}about` || currentPath === `${base}about/` ? <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span> : null}
+          {currentPath === `${base}/about` || currentPath === `${base}/about/` ? <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span> : null}
         </a>
         <a
-          href={`${base}projects`}
-          class={`text-muted-foreground hover:text-primary transition-smooth relative ${currentPath === `${base}projects` || currentPath === `${base}projects/` ? 'text-primary font-semibold' : ''}`}
+          href={`${base}/projects`}
+          class={`text-muted-foreground hover:text-primary transition-smooth relative ${currentPath === `${base}/projects` || currentPath === `${base}/projects/` ? 'text-primary font-semibold' : ''}`}
         >
           Projects
-          {currentPath === `${base}projects` || currentPath === `${base}projects/` ? <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span> : null}
+          {currentPath === `${base}/projects` || currentPath === `${base}/projects/` ? <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span> : null}
         </a>
         <a
-          href={`${base}blog`}
-          class={`text-muted-foreground hover:text-primary transition-smooth relative ${currentPath.startsWith(`${base}blog`) ? 'text-primary font-semibold' : ''}`}
+          href={`${base}/blog`}
+          class={`text-muted-foreground hover:text-primary transition-smooth relative ${currentPath.startsWith(`${base}/blog`) ? 'text-primary font-semibold' : ''}`}
         >
           Blog
-          {currentPath.startsWith(`${base}blog`) ? <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span> : null}
+          {currentPath.startsWith(`${base}/blog`) ? <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span> : null}
         </a>
         <a
-          href={`${base}contact`}
-          class={`text-muted-foreground hover:text-primary transition-smooth relative ${currentPath === `${base}contact` || currentPath === `${base}contact/` ? 'text-primary font-semibold' : ''}`}
+          href={`${base}/contact`}
+          class={`text-muted-foreground hover:text-primary transition-smooth relative ${currentPath === `${base}/contact` || currentPath === `${base}/contact/` ? 'text-primary font-semibold' : ''}`}
         >
           Contact
-          {currentPath === `${base}contact` || currentPath === `${base}contact/` ? <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span> : null}
+          {currentPath === `${base}/contact` || currentPath === `${base}/contact/` ? <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span> : null}
         </a>
         <ThemeToggle />
       </div>
@@ -63,10 +63,10 @@ const base = import.meta.env.BASE_URL;
     <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
       <div class="flex flex-col space-y-4">
         <a href={base} class={`text-muted-foreground hover:text-primary transition-smooth ${currentPath === base || currentPath === base + '/' ? 'text-primary font-semibold' : ''}`}>Home</a>
-        <a href={`${base}about`} class={`text-muted-foreground hover:text-primary transition-smooth ${currentPath === `${base}about` || currentPath === `${base}about/` ? 'text-primary font-semibold' : ''}`}>About</a>
-        <a href={`${base}projects`} class={`text-muted-foreground hover:text-primary transition-smooth ${currentPath === `${base}projects` || currentPath === `${base}projects/` ? 'text-primary font-semibold' : ''}`}>Projects</a>
-        <a href={`${base}blog`} class={`text-muted-foreground hover:text-primary transition-smooth ${currentPath.startsWith(`${base}blog`) ? 'text-primary font-semibold' : ''}`}>Blog</a>
-        <a href={`${base}contact`} class={`text-muted-foreground hover:text-primary transition-smooth ${currentPath === `${base}contact` || currentPath === `${base}contact/` ? 'text-primary font-semibold' : ''}`}>Contact</a>
+        <a href={`${base}/about`} class={`text-muted-foreground hover:text-primary transition-smooth ${currentPath === `${base}/about` || currentPath === `${base}/about/` ? 'text-primary font-semibold' : ''}`}>About</a>
+        <a href={`${base}/projects`} class={`text-muted-foreground hover:text-primary transition-smooth ${currentPath === `${base}/projects` || currentPath === `${base}/projects/` ? 'text-primary font-semibold' : ''}`}>Projects</a>
+        <a href={`${base}/blog`} class={`text-muted-foreground hover:text-primary transition-smooth ${currentPath.startsWith(`${base}/blog`) ? 'text-primary font-semibold' : ''}`}>Blog</a>
+        <a href={`${base}/contact`} class={`text-muted-foreground hover:text-primary transition-smooth ${currentPath === `${base}/contact` || currentPath === `${base}/contact/` ? 'text-primary font-semibold' : ''}`}>Contact</a>
       </div>
     </div>
   </nav>

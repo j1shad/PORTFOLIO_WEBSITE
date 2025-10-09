@@ -12,6 +12,7 @@ import {
   SiGit
 } from "react-icons/si";
 
+const base = import.meta.env.BASE_URL;
 ---
 
 <section id="about" class="min-h-screen py-20 pt-32 bg-background">
@@ -76,10 +77,10 @@ import {
         </div>
 
         <div class="relative animate-scale-in">
-          <div class="w-80 h-80 mx-auto bg-gradient-to-br from-primary/20 to-accent/5 rounded-full flex items-center justify-center shadow-purple-lg">
-            <div class="w-72 h-72 bg-card rounded-full flex items-center justify-center overflow-hidden border-2 border-primary/20 shadow-purple-md">
+          <div class="w-64 h-64 sm:w-80 sm:h-80 mx-auto bg-gradient-to-br from-primary/20 to-accent/5 rounded-full flex items-center justify-center shadow-purple-lg">
+            <div class="w-56 h-56 sm:w-72 sm:h-72 bg-card rounded-full flex items-center justify-center overflow-hidden border-2 border-primary/20 shadow-purple-md">
               <img
-                src="/assets/Jay.jpeg"
+                src={`${base}/assets/Jay.jpeg`}
                 alt="Jason Acquah's profile photo"
                 class="w-full h-full object-cover rounded-full"
               />
@@ -107,7 +108,7 @@ import {
           Professional credentials and continuous learning
         </p>
 
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           <a
             href="https://www.credly.com/badges/aab33980-01df-4a8e-882b-4489ba023e2e"
             target="_blank"
@@ -118,7 +119,7 @@ import {
             <div class="flex flex-col items-center text-center">
               <div class="w-32 h-32 mb-4 group-hover:scale-110 transition-smooth">
                 <img
-                  src="/assets/aws-certified-data-engineer-associate.png"
+                  src={`${base}/assets/aws-certified-data-engineer-associate.png`}
                   alt="AWS Certified Data Engineer - Associate"
                   class="w-full h-full object-contain"
                 />
@@ -144,7 +145,7 @@ import {
             <div class="flex flex-col items-center text-center">
               <div class="w-32 h-32 mb-4 group-hover:scale-110 transition-smooth">
                 <img
-                  src="/assets/Alx-badge.svg"
+                  src={`${base}/assets/Alx-badge.svg`}
                   alt="ALX Data Science Certification"
                   class="w-full h-full object-contain"
                 />
@@ -171,7 +172,7 @@ import {
             <div class="flex flex-col items-center text-center">
               <div class="w-32 h-32 mb-4 group-hover:scale-110 transition-smooth">
                 <img
-                  src="/assets/Alx-badge.svg"
+                  src={`${base}/assets/Alx-badge.svg`}
                   alt="ALX Professional Skills Certification"
                   class="w-full h-full object-contain"
                 />
@@ -190,7 +191,7 @@ import {
 
           <button
             type="button"
-            data-cert-pdf="/assets/Blossom-DataScience-cert.pdf"
+            data-cert-pdf={`${base}/assets/Blossom-DataScience-cert.pdf`}
             data-cert-title="Data Science Certification"
             class="cert-button bg-card border border-border rounded-xl p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
             style="animation-delay: 0.2s"
@@ -198,7 +199,7 @@ import {
             <div class="flex flex-col items-center text-center">
               <div class="w-32 h-32 mb-4 group-hover:scale-110 transition-smooth">
                 <img
-                  src="/assets/blossom-badge.png"
+                  src={`${base}/assets/blossom-badge.png`}
                   alt="Data Science Certification"
                   class="w-full h-full object-contain"
                 />
@@ -217,7 +218,7 @@ import {
 
           <button
             type="button"
-            data-cert-pdf="/assets/Blossom-DataAnalysis-cert.pdf"
+            data-cert-pdf={`${base}/assets/Blossom-DataAnalysis-cert.pdf`}
             data-cert-title="Data Analysis Certification"
             class="cert-button bg-card border border-border rounded-xl p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
             style="animation-delay: 0.3s"
@@ -225,7 +226,7 @@ import {
             <div class="flex flex-col items-center text-center">
               <div class="w-32 h-32 mb-4 group-hover:scale-110 transition-smooth">
                 <img
-                  src="/assets/blossom-badge.png"
+                  src={`${base}/assets/blossom-badge.png`}
                   alt="Data Analysis Certification"
                   class="w-full h-full object-contain"
                 />
