@@ -7,9 +7,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://jasonacquah.github.io',
-  // Uncomment the line below and update if deploying to a subdirectory
-  // base: '/portfolio-website',
+  site: 'https://j1shad.github.io',
+  base: '/PORTFOLIO_WEBSITE',
   integrations: [
     react(),    // React components support, including Shadcn/ui
     mdx(),      // MDX support for blog posts
