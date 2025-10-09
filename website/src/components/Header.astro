@@ -13,12 +13,8 @@ const currentPath = Astro.url.pathname;
       <div class="hidden md:flex items-center space-x-8">
         <a
           href="/"
-          class={`text-muted-foreground hover:text-primary transition-smooth relative flex items-center gap-1 ${currentPath === '/' ? 'text-primary font-semibold' : ''}`}
-          title="Home"
+          class={`text-muted-foreground hover:text-primary transition-smooth relative ${currentPath === '/' ? 'text-primary font-semibold' : ''}`}
         >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-          </svg>
           Home
           {currentPath === '/' ? <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span> : null}
         </a>
@@ -65,12 +61,7 @@ const currentPath = Astro.url.pathname;
 
     <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
       <div class="flex flex-col space-y-4">
-        <a href="/" class={`text-muted-foreground hover:text-primary transition-smooth flex items-center gap-2 ${currentPath === '/' ? 'text-primary font-semibold' : ''}`}>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-          </svg>
-          Home
-        </a>
+        <a href="/" class={`text-muted-foreground hover:text-primary transition-smooth ${currentPath === '/' ? 'text-primary font-semibold' : ''}`}>Home</a>
         <a href="/about" class={`text-muted-foreground hover:text-primary transition-smooth ${currentPath === '/about' || currentPath === '/about/' ? 'text-primary font-semibold' : ''}`}>About</a>
         <a href="/projects" class={`text-muted-foreground hover:text-primary transition-smooth ${currentPath === '/projects' || currentPath === '/projects/' ? 'text-primary font-semibold' : ''}`}>Projects</a>
         <a href="/blog" class={`text-muted-foreground hover:text-primary transition-smooth ${currentPath.startsWith('/blog') ? 'text-primary font-semibold' : ''}`}>Blog</a>

@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+
+const categories = [
+  {
+    name: 'Data Engineering',
+    description: 'Building scalable data pipelines and infrastructure for processing massive datasets',
+    icon: 'pipeline',
+    gradient: 'from-primary to-accent',
+    href: '/projects/data-engineer',
+    count: 4
+  },
+  {
+    name: 'Data Analytics',
+    description: 'Transforming data into actionable insights through advanced analytics and visualization',
+    icon: 'chart',
+    gradient: 'from-blue-500 to-primary',
+    href: '/projects/data-analyst',
+    count: 3
+  },
+  {
+    name: 'Data Science',
+    description: 'Developing machine learning models and AI solutions for predictive analytics',
+    icon: 'brain',
+    gradient: 'from-primary to-pink-500',
+    href: '/projects/data-scientist',
+    count: 3
+  }
+];
+---
+
+<Layout title="Projects - Jason Acquah">
+  <div class="min-h-screen bg-background pt-32 pb-20">
+    <div class="container mx-auto px-6">
+      <div class="max-w-6xl mx-auto">
+        <header class="text-center mb-16 animate-fade-in">
+          <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            My Projects
+          </h1>
+          <p class="text-lg text-muted-foreground">
+            Explore my work across data engineering, analytics, and data science
+          </p>
+        </header>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          {categories.map((category, index) => (
+            <a
+              href={category.href}
+              class={`group relative bg-card border border-border rounded-2xl p-8 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in overflow-hidden`}
+              style={`animation-delay: ${index * 0.15}s`}
+            >
+              <div class={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-10 transition-opacity`}></div>
+
+              <div class="relative z-10">
+                <div class="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/10 rounded-2xl flex items-center justify-center mb-6 shadow-purple-lg group-hover:scale-110 transition-smooth">
+                  {category.icon === 'pipeline' && (
+                    <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                    </svg>
+                  )}
+                  {category.icon === 'chart' && (
+                    <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                  )}
+                  {category.icon === 'brain' && (
+                    <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                    </svg>
+                  )}
+                </div>
+
+                <h3 class="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                  {category.name}
+                </h3>
+
+                <p class="text-muted-foreground mb-6 leading-relaxed">
+                  {category.description}
+                </p>
+
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-muted-foreground">
+                    {category.count} projects
+                  </span>
+                  <svg class="w-5 h-5 text-primary group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                  </svg>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+  <Footer />
+</Layout>
