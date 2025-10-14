@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import TiltedCard from './TiltedCard.jsx';
 
 interface TiltedProfileImageProps {
@@ -17,7 +18,7 @@ export default function TiltedProfileImage({
         width: containerSize,
         height: containerSize
       }}
-      className="sm:w-72 sm:h-72"
+      className="sm:w-72 sm:h-72 mx-auto"
     >
       <TiltedCard
         imageSrc={imageSrc}
@@ -28,16 +29,23 @@ export default function TiltedProfileImage({
         imageHeight="100%"
         imageWidth="100%"
         rotateAmplitude={12}
-        scaleOnHover={1.1}
+        scaleOnHover={1.05}
         showMobileWarning={false}
         showTooltip={false}
         displayOverlayContent={false}
       />
       <style jsx>{`
-        :global(.tilted-card-img) {
+        div :global(.tilted-card-container) {
           border-radius: 50% !important;
-          border: 2px solid hsl(var(--primary) / 0.2);
-          box-shadow: 0 4px 12px hsla(262, 80%, 50%, 0.3);
+          background: linear-gradient(to bottom right, hsl(var(--primary) / 0.2), hsl(var(--accent) / 0.05)) !important;
+          overflow: hidden !important;
+        }
+        div :global(.tilted-card-img) {
+          border-radius: 50% !important;
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+          border: none !important;
         }
       `}</style>
     </div>

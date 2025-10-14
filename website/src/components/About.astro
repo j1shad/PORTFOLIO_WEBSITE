@@ -41,60 +41,58 @@ const base = import.meta.env.BASE_URL;
           </p>
 
           <div class="flex flex-wrap gap-3 sm:gap-4 md:gap-6 mt-8">
-            <div class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth hover:scale-110 shadow-purple-sm hover:shadow-purple-md p-2 rounded-lg">
+            <div class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth hover:scale-110 p-2 rounded-lg border border-border">
               <SiPython className="w-6 h-6" />
               <span class="text-sm font-medium">Python</span>
             </div>
-            <div class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth hover:scale-110 shadow-purple-sm hover:shadow-purple-md p-2 rounded-lg">
+            <div class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth hover:scale-110 p-2 rounded-lg border border-border">
               <SiPostgresql className="w-6 h-6" />
               <span class="text-sm font-medium">SQL</span>
             </div>
-            <div class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth hover:scale-110 shadow-purple-sm hover:shadow-purple-md p-2 rounded-lg">
+            <div class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth hover:scale-110 p-2 rounded-lg border border-border">
               <SiApachespark className="w-6 h-6" />
               <span class="text-sm font-medium">Spark</span>
             </div>
-            <div class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth hover:scale-110 shadow-purple-sm hover:shadow-purple-md p-2 rounded-lg">
+            <div class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth hover:scale-110 p-2 rounded-lg border border-border">
               <SiApachekafka className="w-6 h-6" />
               <span class="text-sm font-medium">Kafka</span>
             </div>
-            <div class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth hover:scale-110 shadow-purple-sm hover:shadow-purple-md p-2 rounded-lg">
+            <div class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth hover:scale-110 p-2 rounded-lg border border-border">
               <SiApacheairflow className="w-6 h-6" />
               <span class="text-sm font-medium">Airflow</span>
             </div>
 
-            <div class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth hover:scale-110 shadow-purple-sm hover:shadow-purple-md p-2 rounded-lg">
+            <div class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth hover:scale-110 p-2 rounded-lg border border-border">
               <SiAmazon className="w-6 h-6" />
               <span class="text-sm font-medium">AWS</span>
             </div>
-            <div class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth hover:scale-110 shadow-purple-sm hover:shadow-purple-md p-2 rounded-lg">
+            <div class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth hover:scale-110 p-2 rounded-lg border border-border">
               <SiDocker className="w-6 h-6" />
               <span class="text-sm font-medium">Docker</span>
             </div>
-            <div class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth hover:scale-110 shadow-purple-sm hover:shadow-purple-md p-2 rounded-lg">
+            <div class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth hover:scale-110 p-2 rounded-lg border border-border">
               <SiGit className="w-6 h-6" />
               <span class="text-sm font-medium">Git</span>
             </div>
           </div>
         </div>
 
-        <div class="relative animate-scale-in">
-          <div class="w-64 h-64 sm:w-80 sm:h-80 mx-auto bg-gradient-to-br from-primary/20 to-accent/5 rounded-full flex items-center justify-center shadow-purple-lg">
-            <TiltedProfileImage
-              client:only="react"
-              imageSrc={`${base}/assets/Jay.jpeg`}
-              containerSize="14rem"
-              containerSizeSm="18rem"
-            />
-          </div>
+        <div class="relative animate-scale-in flex justify-center">
+          <TiltedProfileImage
+            client:only="react"
+            imageSrc={`${base}/assets/Jay.jpeg`}
+            containerSize="16rem"
+            containerSizeSm="20rem"
+          />
 
-          <!-- Floating tool icons with animation and purple shadows -->
-          <div class="absolute top-4 right-4 w-12 h-12 bg-card border border-primary/20 rounded-lg flex items-center justify-center opacity-90 animate-float shadow-purple-lg">
+          <!-- Floating tool icons with animation -->
+          <div class="absolute top-4 right-4 sm:right-8 w-12 h-12 bg-card border border-primary/20 rounded-lg flex items-center justify-center opacity-90 animate-float">
             <SiPython className="w-7 h-7 text-primary" />
           </div>
-          <div class="absolute bottom-8 left-8 w-12 h-12 bg-card border border-primary/20 rounded-lg flex items-center justify-center opacity-90 animate-float-delay shadow-purple-lg">
+          <div class="absolute bottom-8 left-4 sm:left-8 w-12 h-12 bg-card border border-primary/20 rounded-lg flex items-center justify-center opacity-90 animate-float-delay">
             <SiApachespark className="w-7 h-7 text-primary" />
           </div>
-          <div class="absolute top-1/2 left-0 w-12 h-12 bg-card border border-primary/20 rounded-lg flex items-center justify-center opacity-90 animate-float-delay-2 shadow-purple-lg">
+          <div class="absolute top-1/2 left-0 w-12 h-12 bg-card border border-primary/20 rounded-lg flex items-center justify-center opacity-90 animate-float-delay-2">
             <SiAmazon className="w-7 h-7 text-primary" />
           </div>
         </div>
@@ -113,7 +111,7 @@ const base = import.meta.env.BASE_URL;
             href="https://www.credly.com/badges/aab33980-01df-4a8e-882b-4489ba023e2e"
             target="_blank"
             rel="noopener noreferrer"
-            class="bg-card border border-border rounded-xl p-4 sm:p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
+            class="bg-card border border-border rounded-xl p-4 sm:p-6 hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
             style="animation-delay: 0.1s"
           >
             <div class="flex flex-col items-center text-center">
@@ -139,7 +137,7 @@ const base = import.meta.env.BASE_URL;
             href="https://intranet.alxswe.com/certificates/mzS8cMH7re"
             target="_blank"
             rel="noopener noreferrer"
-            class="bg-card border border-border rounded-xl p-4 sm:p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
+            class="bg-card border border-border rounded-xl p-4 sm:p-6 hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
             style="animation-delay: 0.4s"
           >
             <div class="flex flex-col items-center text-center">
@@ -166,7 +164,7 @@ const base = import.meta.env.BASE_URL;
             href="https://intranet.alxswe.com/certificates/nCHmR67shJ"
             target="_blank"
             rel="noopener noreferrer"
-            class="bg-card border border-border rounded-xl p-4 sm:p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
+            class="bg-card border border-border rounded-xl p-4 sm:p-6 hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
             style="animation-delay: 0.5s"
           >
             <div class="flex flex-col items-center text-center">
@@ -193,7 +191,7 @@ const base = import.meta.env.BASE_URL;
             type="button"
             data-cert-pdf={`${base}/assets/Blossom-DataScience-cert.pdf`}
             data-cert-title="Data Science Certification"
-            class="cert-button bg-card border border-border rounded-xl p-4 sm:p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
+            class="cert-button bg-card border border-border rounded-xl p-4 sm:p-6 hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
             style="animation-delay: 0.2s"
           >
             <div class="flex flex-col items-center text-center">
@@ -220,7 +218,7 @@ const base = import.meta.env.BASE_URL;
             type="button"
             data-cert-pdf={`${base}/assets/Blossom-DataAnalysis-cert.pdf`}
             data-cert-title="Data Analysis Certification"
-            class="cert-button bg-card border border-border rounded-xl p-4 sm:p-6 shadow-purple-md hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
+            class="cert-button bg-card border border-border rounded-xl p-4 sm:p-6 hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
             style="animation-delay: 0.3s"
           >
             <div class="flex flex-col items-center text-center">
@@ -251,7 +249,7 @@ const base = import.meta.env.BASE_URL;
 
 <!-- PDF Viewer Modal -->
 <div id="pdf-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-background/80 backdrop-blur-sm">
-  <div class="relative w-full h-full max-w-7xl max-h-[90vh] m-4 bg-card border border-border rounded-xl shadow-purple-xl overflow-hidden">
+  <div class="relative w-full h-full max-w-7xl max-h-[90vh] m-4 bg-card border border-border rounded-xl overflow-hidden">
     <div class="flex items-center justify-between p-4 border-b border-border bg-card/95 backdrop-blur-sm">
       <h3 id="modal-title" class="text-xl font-bold text-foreground">Certificate</h3>
       <button

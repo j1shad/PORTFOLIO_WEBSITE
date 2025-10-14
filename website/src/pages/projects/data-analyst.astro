@@ -57,7 +57,7 @@ const projects = [
         <header class="mb-12 sm:mb-16 animate-fade-in">
           <div class="flex items-center gap-4 mb-4">
             <div
-              class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500/20 to-primary/10 rounded-2xl flex items-center justify-center shadow-purple-lg"
+              class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500/20 to-primary/10 rounded-2xl flex items-center justify-center"
             >
               <svg
                 class="w-6 h-6 sm:w-8 sm:h-8 text-primary"
@@ -88,7 +88,7 @@ const projects = [
           {
             projects.map((project, index) => (
               <div
-                class={`bg-card border border-border rounded-xl overflow-hidden shadow-purple-md hover-lift transition-smooth animate-scale-in`}
+                class={`bg-card border border-border rounded-xl overflow-hidden hover-lift transition-smooth animate-scale-in`}
                 style={`animation-delay: ${index * 0.1}s`}
               >
                 <div class="h-40 sm:h-48 bg-gradient-to-br from-blue-500/10 via-primary/5 to-blue-400/10 flex items-center justify-center border-b border-border relative overflow-hidden">
@@ -109,7 +109,7 @@ const projects = [
 
                   <div class="flex flex-wrap gap-2 mb-6">
                     {project.technologies.map((tech) => (
-                      <span class="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-xs shadow-purple-sm transition-smooth hover:shadow-purple-md hover:scale-105">
+                      <span class="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-xs transition-smooth hover:scale-105">
                         {tech}
                       </span>
                     ))}

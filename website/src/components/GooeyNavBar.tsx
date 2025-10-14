@@ -61,8 +61,8 @@ export default function GooeyNavBar({ currentPath, base }: GooeyNavBarProps) {
         ['--color-2' as string]: theme === 'dark' ? '#B19EEF' : '#FF9FFC',
         ['--color-3' as string]: theme === 'dark' ? '#8B5CF6' : '#B19EEF',
         ['--color-4' as string]: theme === 'dark' ? '#C084FC' : '#A855F7',
-        ['--nav-bg' as string]: theme === 'dark' ? 'rgba(9, 9, 11, 0.9)' : 'rgba(255, 255, 255, 0.8)',
-        ['--nav-text' as string]: theme === 'dark' ? '#E4E4E7' : '#18181B'
+        ['--nav-bg' as string]: theme === 'dark' ? 'rgba(9, 9, 11, 0.4)' : 'rgba(255, 255, 255, 0.4)',
+        ['--nav-text' as string]: theme === 'dark' ? '#E4E4E7' : '#09090B'
       }}
     >
       <div
@@ -70,7 +70,8 @@ export default function GooeyNavBar({ currentPath, base }: GooeyNavBarProps) {
           maxWidth: '1200px',
           margin: '0 auto',
           background: 'var(--nav-bg)',
-          backdropFilter: 'blur(12px)',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
           border: theme === 'dark' ? '1px solid hsl(240 4% 16%)' : '1px solid hsl(240 6% 90%)',
           borderRadius: '9999px',
           padding: '0.5rem',
