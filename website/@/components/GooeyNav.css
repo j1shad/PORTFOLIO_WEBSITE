@@ -46,7 +46,7 @@
   position: relative;
   z-index: 3;
   color: var(--gooey-nav-text-color, white);
-  text-shadow: 0 1px 1px hsl(205deg 30% 10% / 0.2);
+  font-weight: 500;
 }
 
 .gooey-nav-container nav ul li {

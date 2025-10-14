@@ -23,7 +23,7 @@ export default function AnimatedRoleText() {
 
   const roles = ['Data Engineering', 'Data Analysis', 'Data Science'];
 
-  const lightColors = ['#5227FF', '#FF9FFC', '#B19EEF', '#A855F7', '#5227FF'];
+  const lightColors = ['#5227FF', '#7C3AED', '#6366F1', '#8B5CF6', '#5227FF'];
   const darkColors = ['#A855F7', '#C084FC', '#B19EEF', '#8B5CF6', '#A855F7'];
 
   const gradientStyle = {
