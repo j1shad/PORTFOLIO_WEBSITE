@@ -11,6 +11,25 @@ export default function GooeyNavBar({ currentPath, base }: GooeyNavBarProps) {
   const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
+    // Add responsive styles
+    const style = document.createElement('style');
+    style.textContent = `
+      @media (max-width: 640px) {
+        .gooey-nav-container nav ul {
+          gap: 0.5em !important;
+          padding: 0 0.5em !important;
+          font-size: 0.875rem !important;
+        }
+        .gooey-nav-container nav ul li a {
+          padding: 0.4em 0.6em !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+    return () => document.head.removeChild(style);
+  }, []);
+
+  useEffect(() => {
     const checkTheme = () => {
       const isDark = document.documentElement.classList.contains('dark');
       setTheme(isDark ? 'dark' : 'light');
@@ -48,21 +67,36 @@ export default function GooeyNavBar({ currentPath, base }: GooeyNavBarProps) {
   }, [currentPath, base]);
 
   return (
-    <div
-      className={`gooey-navbar-wrapper ${theme}`}
-      style={{
+    <>
+      <style jsx global>{`
+        .gooey-navbar-wrapper.light .effect.filter::before {
+          display: none !important;
+          opacity: 0 !important;
+          visibility: hidden !important;
+        }
+      `}</style>
+      <div
+        className={`gooey-navbar-wrapper ${theme}`}
+        style={{
         position: 'fixed',
         top: 0,
         left: 0,
         right: 0,
         zIndex: 50,
-        padding: '1rem',
+        padding: '0.5rem',
         ['--color-1' as string]: theme === 'dark' ? '#A855F7' : '#5227FF',
         ['--color-2' as string]: theme === 'dark' ? '#B19EEF' : '#FF9FFC',
         ['--color-3' as string]: theme === 'dark' ? '#8B5CF6' : '#B19EEF',
         ['--color-4' as string]: theme === 'dark' ? '#C084FC' : '#A855F7',
         ['--nav-bg' as string]: theme === 'dark' ? 'rgba(9, 9, 11, 0.4)' : 'rgba(255, 255, 255, 0.4)',
-        ['--nav-text' as string]: theme === 'dark' ? '#E4E4E7' : '#09090B'
+        ['--nav-text' as string]: theme === 'dark' ? '#E4E4E7' : '#09090B',
+        ['--gooey-nav-text-color' as string]: theme === 'dark' ? '#E4E4E7' : '#09090B',
+        ['--gooey-nav-active-text' as string]: theme === 'dark' ? '#09090B' : '#FFFFFF',
+        ['--gooey-nav-active-bg' as string]: theme === 'dark' ? '#FFFFFF' : '#09090B',
+        ['--gooey-nav-filter-bg' as string]: theme === 'dark' ? '#09090B' : 'transparent',
+        ['--gooey-nav-blend-mode' as string]: theme === 'dark' ? 'lighten' : 'normal',
+        ['--gooey-nav-filter-opacity' as string]: theme === 'dark' ? '1' : '0',
+        ['--gooey-nav-filter-display' as string]: theme === 'dark' ? 'block' : 'none'
       }}
     >
       <div
@@ -95,5 +129,6 @@ export default function GooeyNavBar({ currentPath, base }: GooeyNavBarProps) {
         />
       </div>
     </div>
+    </>
   );
 }

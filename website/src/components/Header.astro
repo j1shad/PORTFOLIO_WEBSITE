@@ -6,8 +6,24 @@ const currentPath = Astro.url.pathname;
 const base = import.meta.env.BASE_URL;
 ---
 
-<div style="position: fixed; top: 1rem; right: 1rem; z-index: 100;">
+<div class="theme-toggle-container">
   <ThemeToggle />
 </div>
+
+<style>
+  .theme-toggle-container {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    z-index: 100;
+  }
+
+  @media (max-width: 640px) {
+    .theme-toggle-container {
+      top: 0.625rem;
+      right: 0.625rem;
+    }
+  }
+</style>
 
 <GooeyNavBar client:load currentPath={currentPath} base={base} />
