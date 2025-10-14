@@ -21,6 +21,13 @@ Personal portfolio website showcasing data engineering, data science, and analyt
 - ✅ Data engineering-focused content and projects
 - ✅ Responsive navigation with mobile menu
 - ✅ Theme persistence with localStorage
+- ✅ Fluid WebGL animated background (LiquidEther) with theme-aware colors
+- ✅ Interactive navigation bar with particle effects (GooeyNav)
+- ✅ Animated gradient role text with rotation (RotatingText + GradientText)
+- ✅ 3D tilted profile image with mouse tracking (TiltedCard)
+- ✅ Glassmorphic animated border buttons (StarBorder)
+- ✅ All animations optimized for both desktop and mobile
+- ✅ Three.js and Framer Motion integration for advanced animations
 
 **To Configure:**
 - Contact form: Replace `YOUR_FORM_ID` in Contact.astro with actual Formspree form ID
@@ -98,8 +105,56 @@ The dark/light theme is implemented with:
 ### React Integration
 
 - React components supported via `@astrojs/react` integration
-- Used primarily for Shadcn/ui components
+- Used for interactive components and animations
 - Configuration in `astro.config.mjs:14`
+
+### Animated Components
+
+The site uses custom animated React components with theme-aware styling:
+
+- **LiquidEtherBackground** (`src/components/LiquidEtherBackground.tsx`)
+  - Wraps LiquidEther.jsx WebGL component from `src/components/`
+  - Theme-aware color switching (bright purples for light, softer purples for dark)
+  - Uses Three.js for fluid simulation
+  - Positioned absolutely behind content on homepage
+  - Monitors theme changes via MutationObserver
+
+- **StarBorderCTA** (`src/components/StarBorderCTA.tsx`)
+  - Wraps StarBorder.jsx component from `src/components/`
+  - Theme-aware animated gradient borders
+  - Primary variant: #5227FF (light) / #A855F7 (dark)
+  - Secondary variant: cyan (light) / #C084FC (dark)
+  - Uses glassmorphic styling with backdrop blur
+  - Import: `import StarBorder from './StarBorder.jsx'`
+
+- **GooeyNavBar** (`src/components/GooeyNavBar.tsx`)
+  - Wraps GooeyNav.jsx component from `src/components/`
+  - Particle animation effects on navigation
+  - Active route detection and highlighting
+  - Fixed position header with backdrop blur
+  - Theme-aware CSS custom properties for colors
+  - Import: `import GooeyNav from './GooeyNav.jsx'` and `import './GooeyNav.css'`
+
+- **TiltedProfileImage** (`src/components/TiltedProfileImage.tsx`)
+  - Wraps TiltedCard.jsx component from `src/components/`
+  - 3D tilt effect with mouse tracking
+  - Circular profile image styling
+  - Used on About page for profile photo
+  - Import: `import TiltedCard from './TiltedCard.jsx'`
+
+- **AnimatedRoleText** (`src/components/AnimatedRoleText.tsx`)
+  - Wraps RotatingText.jsx component from `src/components/`
+  - Cycles through roles: "Data Engineering", "Data Analysis", "Data Science"
+  - Theme-aware gradient colors
+  - Character-by-character stagger animation
+  - 3-second rotation interval
+  - Import: `import RotatingText from './RotatingText.jsx'`
+
+**Important**: All wrapper components use **relative imports** (e.g., `'./StarBorder.jsx'`) not path aliases, as the base `.jsx` components are in the same `src/components/` directory. The base components were copied from a literal `@/` directory that was created during installation.
+
+**Dependencies**:
+- `three` - Required for LiquidEther WebGL animations
+- `framer-motion` - Required for TiltedCard and RotatingText animations
 
 ### Blog System
 

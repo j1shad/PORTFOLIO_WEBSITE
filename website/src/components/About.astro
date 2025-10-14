@@ -11,6 +11,7 @@ import {
   SiDocker,
   SiGit
 } from "react-icons/si";
+import TiltedProfileImage from './TiltedProfileImage.tsx';
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -78,13 +79,12 @@ const base = import.meta.env.BASE_URL;
 
         <div class="relative animate-scale-in">
           <div class="w-64 h-64 sm:w-80 sm:h-80 mx-auto bg-gradient-to-br from-primary/20 to-accent/5 rounded-full flex items-center justify-center shadow-purple-lg">
-            <div class="w-56 h-56 sm:w-72 sm:h-72 bg-card rounded-full flex items-center justify-center overflow-hidden border-2 border-primary/20 shadow-purple-md">
-              <img
-                src={`${base}/assets/Jay.jpeg`}
-                alt="Jason Acquah's profile photo"
-                class="w-full h-full object-cover rounded-full"
-              />
-            </div>
+            <TiltedProfileImage
+              client:only="react"
+              imageSrc={`${base}/assets/Jay.jpeg`}
+              containerSize="14rem"
+              containerSizeSm="18rem"
+            />
           </div>
 
           <!-- Floating tool icons with animation and purple shadows -->
