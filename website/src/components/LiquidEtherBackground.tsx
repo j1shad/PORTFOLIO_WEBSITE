@@ -30,7 +30,8 @@ export default function LiquidEtherBackground() {
       inset: 0,
       zIndex: 0,
       width: '100%',
-      height: '100%'
+      height: '100%',
+      pointerEvents: 'none'
     }}>
       <LiquidEther
         colors={theme === 'dark' ? darkColors : lightColors}

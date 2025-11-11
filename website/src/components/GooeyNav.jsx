@@ -94,6 +94,7 @@ const GooeyNav = ({
   };
 
   const handleClick = (e, index) => {
+    e.preventDefault();
     const liEl = e.currentTarget;
 
     setActiveIndex(index);
