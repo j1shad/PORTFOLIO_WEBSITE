@@ -1,14 +1,90 @@
 ---
-import GooeyNavBar from './GooeyNavBar.tsx';
 import ThemeToggle from './ThemeToggle.astro';
 
 const currentPath = Astro.url.pathname;
 const base = import.meta.env.BASE_URL;
+
+const navItems = [
+  { label: 'Home', href: base || '/' },
+  { label: 'About', href: `${base}/about` },
+  { label: 'Projects', href: `${base}/projects` },
+  { label: 'Blog', href: `${base}/blog` },
+  { label: 'Contact', href: `${base}/contact` }
+];
+
+const isActive = (href: string) => {
+  const normalizedPath = currentPath.endsWith('/') ? currentPath.slice(0, -1) : currentPath;
+  const normalizedBase = base.endsWith('/') ? base.slice(0, -1) : base;
+  const normalizedHref = href.endsWith('/') ? href.slice(0, -1) : href;
+
+  if (normalizedPath === normalizedHref) return true;
+  if (normalizedHref === normalizedBase && normalizedPath === normalizedBase) return true;
+  if (normalizedHref === `${normalizedBase}/blog` && normalizedPath.startsWith(`${normalizedBase}/blog`)) return true;
+
+  return false;
+};
 ---
 
 <div class="theme-toggle-container">
   <ThemeToggle />
 </div>
+
+<header class="fixed top-0 left-0 right-0 z-50 p-2 sm:p-4">
+  <nav class="max-w-6xl mx-auto nav-container">
+    <div class="flex items-center justify-between gap-4 px-4 sm:px-6 py-3 sm:py-4">
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex items-center justify-center gap-1 lg:gap-2 mx-auto">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                'nav-link',
+                { 'nav-link-active': isActive(item.href) }
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        class="md:hidden mobile-menu-button"
+        aria-label="Toggle mobile menu"
+        aria-expanded="false"
+      >
+        <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <ul class="flex flex-col gap-2 p-4">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                'mobile-nav-link',
+                { 'mobile-nav-link-active': isActive(item.href) }
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+</header>
 
 <style>
   .theme-toggle-container {
@@ -24,6 +100,154 @@ const base = import.meta.env.BASE_URL;
       right: 0.625rem;
     }
   }
+
+  .nav-container {
+    background: var(--nav-bg, rgba(255, 255, 255, 0.4));
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--border, hsl(240 6% 90%));
+    border-radius: 9999px;
+    box-shadow: 0 2px 8px var(--nav-shadow, hsla(262, 80%, 50%, 0.15));
+    transition: all 0.3s ease;
+  }
+
+  :global(.dark) .nav-container {
+    --nav-bg: rgba(9, 9, 11, 0.4);
+    --border: hsl(240 4% 16%);
+    --nav-shadow: hsla(262, 80%, 50%, 0.2);
+  }
+
+  .nav-link {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--foreground);
+    text-decoration: none;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--primary);
+    background: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .nav-link-active {
+    color: var(--primary-foreground);
+    background: var(--primary);
+    font-weight: 600;
+  }
+
+  .nav-link-active:hover {
+    color: var(--primary-foreground);
+    background: var(--primary);
+    transform: none;
+  }
+
+  .mobile-menu-button {
+    color: var(--foreground);
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-button:hover {
+    color: var(--primary);
+    transform: scale(1.1);
+  }
+
+  .mobile-menu {
+    display: none;
+    border-top: 1px solid var(--border);
+    margin-top: 0.5rem;
+    animation: slideDown 0.3s ease;
+  }
+
+  .mobile-menu.active {
+    display: block;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .mobile-nav-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--foreground);
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-nav-link:hover {
+    color: var(--primary);
+    background: var(--accent);
+    transform: translateX(4px);
+  }
+
+  .mobile-nav-link-active {
+    color: var(--primary-foreground);
+    background: var(--primary);
+    font-weight: 600;
+  }
+
+  .mobile-nav-link-active:hover {
+    color: var(--primary-foreground);
+    background: var(--primary);
+    transform: translateX(4px);
+  }
+
+  @media (min-width: 768px) {
+    .nav-container {
+      border-radius: 9999px;
+    }
+  }
 </style>
 
-<GooeyNavBar client:load currentPath={currentPath} base={base} />
+<script>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  menuButton?.addEventListener('click', () => {
+    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+
+    menuButton.setAttribute('aria-expanded', (!isExpanded).toString());
+    mobileMenu?.classList.toggle('active');
+    menuIcon?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!menuButton?.contains(e.target as Node) && !mobileMenu?.contains(e.target as Node)) {
+      menuButton?.setAttribute('aria-expanded', 'false');
+      mobileMenu?.classList.remove('active');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+    }
+  });
+
+  // Close menu on navigation
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      menuButton?.setAttribute('aria-expanded', 'false');
+      mobileMenu?.classList.remove('active');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+    });
+  });
+</script>
