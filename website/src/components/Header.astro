@@ -60,7 +60,7 @@ const base = import.meta.env.BASE_URL;
       </div>
     </div>
 
-    <div id="mobile-menu" class="md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-card/95 backdrop-blur-md border-t border-border shadow-lg rounded-b-xl mx-4" style="max-height: 0;">
+    <div id="mobile-menu" class="md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-card/95 backdrop-blur-md border-t border-border shadow-lg rounded-b-xl opacity-0 invisible" style="max-height: 0;">
       <div class="flex flex-col space-y-3 p-6">
         <a href={base} class={`text-muted-foreground hover:text-primary transition-smooth ${currentPath === base || currentPath === base + '/' ? 'text-primary font-semibold' : ''}`}>Home</a>
         <a href={`${base}/about`} class={`text-muted-foreground hover:text-primary transition-smooth ${currentPath === `${base}/about` || currentPath === `${base}/about/` ? 'text-primary font-semibold' : ''}`}>About</a>
@@ -81,8 +81,12 @@ const base = import.meta.env.BASE_URL;
       const isOpen = mobileMenu.style.maxHeight !== '0px';
       if (isOpen) {
         mobileMenu.style.maxHeight = '0px';
+        mobileMenu.classList.add('opacity-0', 'invisible');
+        mobileMenu.classList.remove('opacity-100', 'visible');
       } else {
         mobileMenu.style.maxHeight = '400px';
+        mobileMenu.classList.remove('opacity-0', 'invisible');
+        mobileMenu.classList.add('opacity-100', 'visible');
       }
     }
   });
@@ -91,6 +95,8 @@ const base = import.meta.env.BASE_URL;
     link.addEventListener('click', () => {
       if (mobileMenu) {
         mobileMenu.style.maxHeight = '0px';
+        mobileMenu.classList.add('opacity-0', 'invisible');
+        mobileMenu.classList.remove('opacity-100', 'visible');
       }
     });
   });
