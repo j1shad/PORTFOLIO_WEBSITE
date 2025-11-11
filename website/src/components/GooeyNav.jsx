@@ -94,8 +94,14 @@ const GooeyNav = ({
   };
 
   const handleClick = (e, index) => {
-    e.preventDefault();
     const liEl = e.currentTarget;
+    const href = items[index]?.href;
+    const currentPath = window.location.pathname;
+
+    // Only prevent default if clicking the current page (to show animation without reload)
+    if (href && currentPath === href) {
+      e.preventDefault();
+    }
 
     setActiveIndex(index);
     updateEffectPosition(liEl);
