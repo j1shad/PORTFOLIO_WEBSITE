@@ -95,7 +95,6 @@ const GooeyNav = ({
 
   const handleClick = (e, index) => {
     const liEl = e.currentTarget;
-    if (activeIndex === index) return;
 
     setActiveIndex(index);
     updateEffectPosition(liEl);
