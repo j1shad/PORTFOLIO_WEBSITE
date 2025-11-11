@@ -55,7 +55,7 @@ const base = import.meta.env.BASE_URL;
               <span class="text-sm font-medium text-muted-foreground">Spark</span>
             </div>
             <div class="flex items-center gap-2 hover:text-primary transition-smooth hover:scale-110 p-2 rounded-lg border border-border">
-              <SiApachekafka className="w-6 h-6" style={{ color: '#FFFFFF' }} />
+              <SiApachekafka className="w-6 h-6 kafka-icon" />
               <span class="text-sm font-medium text-muted-foreground">Kafka</span>
             </div>
             <div class="flex items-center gap-2 hover:text-primary transition-smooth hover:scale-110 p-2 rounded-lg border border-border">
@@ -351,6 +351,14 @@ const base = import.meta.env.BASE_URL;
 
   .animate-float-delay-2 {
     animation: float 3s ease-in-out infinite 2s;
+  }
+
+  .kafka-icon {
+    color: #231F20;
+  }
+
+  .dark .kafka-icon {
+    color: #FFFFFF;
   }
 </style>
 
