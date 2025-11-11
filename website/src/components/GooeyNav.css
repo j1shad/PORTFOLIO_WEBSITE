@@ -119,21 +119,6 @@
   mix-blend-mode: var(--gooey-nav-blend-mode);
 }
 
-.gooey-nav-container .effect.filter::before {
-  content: '';
-  position: absolute;
-  inset: -75px;
-  z-index: -2;
-  background: var(--gooey-nav-filter-bg);
-  opacity: var(--gooey-nav-filter-opacity);
-  display: var(--gooey-nav-filter-display);
-  transition: opacity 0.3s ease;
-}
-
-.gooey-nav-container .effect.filter.active::before {
-  opacity: var(--gooey-nav-filter-opacity);
-}
-
 .gooey-nav-container .effect.filter::after {
   content: '';
   position: absolute;

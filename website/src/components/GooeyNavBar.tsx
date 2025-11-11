@@ -67,17 +67,9 @@ export default function GooeyNavBar({ currentPath, base }: GooeyNavBarProps) {
   }, [currentPath, base]);
 
   return (
-    <>
-      <style jsx global>{`
-        .gooey-navbar-wrapper.light .effect.filter::before {
-          display: none !important;
-          opacity: 0 !important;
-          visibility: hidden !important;
-        }
-      `}</style>
-      <div
-        className={`gooey-navbar-wrapper ${theme}`}
-        style={{
+    <div
+      className={`gooey-navbar-wrapper ${theme}`}
+      style={{
         position: 'fixed',
         top: 0,
         left: 0,
@@ -93,10 +85,7 @@ export default function GooeyNavBar({ currentPath, base }: GooeyNavBarProps) {
         ['--gooey-nav-text-color' as string]: theme === 'dark' ? '#E4E4E7' : '#09090B',
         ['--gooey-nav-active-text' as string]: theme === 'dark' ? '#09090B' : '#FFFFFF',
         ['--gooey-nav-active-bg' as string]: theme === 'dark' ? '#FFFFFF' : '#09090B',
-        ['--gooey-nav-filter-bg' as string]: theme === 'dark' ? '#09090B' : 'transparent',
-        ['--gooey-nav-blend-mode' as string]: theme === 'dark' ? 'lighten' : 'normal',
-        ['--gooey-nav-filter-opacity' as string]: theme === 'dark' ? '1' : '0',
-        ['--gooey-nav-filter-display' as string]: theme === 'dark' ? 'block' : 'none'
+        ['--gooey-nav-blend-mode' as string]: theme === 'dark' ? 'lighten' : 'normal'
       }}
     >
       <div
@@ -129,6 +118,5 @@ export default function GooeyNavBar({ currentPath, base }: GooeyNavBarProps) {
         />
       </div>
     </div>
-    </>
   );
 }
