@@ -13,6 +13,7 @@ import {
   SiGit
 } from "react-icons/si";
 import TiltedProfileImage from './TiltedProfileImage.tsx';
+import StarBorderCard from './StarBorderCard.tsx';
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -82,24 +83,26 @@ const base = import.meta.env.BASE_URL;
           </div>
         </div>
 
-        <div class="relative animate-scale-in flex justify-center">
-          <TiltedProfileImage
-            client:only="react"
-            imageSrc={`${base}/assets/Jay.jpeg`}
-            containerSize="16rem"
-            containerSizeSm="20rem"
-          />
+        <div class="animate-scale-in flex justify-center">
+          <StarBorderCard client:only="react" variant="primary" className="relative">
+            <TiltedProfileImage
+              client:only="react"
+              imageSrc={`${base}/assets/Jay.jpeg`}
+              containerSize="16rem"
+              containerSizeSm="20rem"
+            />
 
-          <!-- Floating tool icons with animation -->
-          <div class="absolute top-4 right-4 sm:right-8 w-12 h-12 bg-card border border-primary/20 rounded-lg flex items-center justify-center opacity-90 animate-float">
-            <SiPython className="w-7 h-7" style={{ color: '#3776AB' }} />
-          </div>
-          <div class="absolute bottom-8 left-4 sm:left-8 w-12 h-12 bg-card border border-primary/20 rounded-lg flex items-center justify-center opacity-90 animate-float-delay">
-            <SiApachespark className="w-7 h-7" style={{ color: '#E25A1C' }} />
-          </div>
-          <div class="absolute top-1/2 left-0 w-12 h-12 bg-card border border-primary/20 rounded-lg flex items-center justify-center opacity-90 animate-float-delay-2">
-            <SiAmazon className="w-7 h-7" style={{ color: '#FF9900' }} />
-          </div>
+            <!-- Floating tool icons with animation -->
+            <div class="absolute top-4 right-4 sm:right-8 w-12 h-12 bg-card border border-primary/20 rounded-lg flex items-center justify-center opacity-90 animate-float">
+              <SiPython className="w-7 h-7" style={{ color: '#3776AB' }} />
+            </div>
+            <div class="absolute bottom-8 left-4 sm:left-8 w-12 h-12 bg-card border border-primary/20 rounded-lg flex items-center justify-center opacity-90 animate-float-delay">
+              <SiApachespark className="w-7 h-7" style={{ color: '#E25A1C' }} />
+            </div>
+            <div class="absolute top-1/2 left-0 w-12 h-12 bg-card border border-primary/20 rounded-lg flex items-center justify-center opacity-90 animate-float-delay-2">
+              <SiAmazon className="w-7 h-7" style={{ color: '#FF9900' }} />
+            </div>
+          </StarBorderCard>
         </div>
       </div>
 
@@ -112,139 +115,144 @@ const base = import.meta.env.BASE_URL;
         </p>
 
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-          <a
-            href="https://www.credly.com/badges/aab33980-01df-4a8e-882b-4489ba023e2e"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="bg-card border border-border rounded-xl p-4 sm:p-6 hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
-            style="animation-delay: 0.1s"
-          >
-            <div class="flex flex-col items-center text-center">
-              <div class="w-24 h-24 sm:w-32 sm:h-32 mb-4 group-hover:scale-110 transition-smooth">
-                <img
-                  src={`${base}/assets/aws-certified-data-engineer-associate.png`}
-                  alt="AWS Certified Data Engineer - Associate"
-                  class="w-full h-full object-contain"
-                />
+          <StarBorderCard client:only="react" variant="primary" className="animate-scale-in" style="animation-delay: 0.1s">
+            <a
+              href="https://www.credly.com/badges/aab33980-01df-4a8e-882b-4489ba023e2e"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block bg-card rounded-xl p-4 sm:p-6 hover-lift transition-smooth group"
+            >
+              <div class="flex flex-col items-center text-center">
+                <div class="w-24 h-24 sm:w-32 sm:h-32 mb-4 group-hover:scale-110 transition-smooth">
+                  <img
+                    src={`${base}/assets/aws-certified-data-engineer-associate.png`}
+                    alt="AWS Certified Data Engineer - Associate"
+                    class="w-full h-full object-contain"
+                  />
+                </div>
+                <h4 class="text-base sm:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  AWS Certified Data Engineer - Associate
+                </h4>
+                <p class="text-sm text-muted-foreground mb-3">
+                  Amazon Web Services
+                </p>
+                <p class="text-xs text-muted-foreground">
+                  Issued: 2025
+                </p>
               </div>
-              <h4 class="text-base sm:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                AWS Certified Data Engineer - Associate
-              </h4>
-              <p class="text-sm text-muted-foreground mb-3">
-                Amazon Web Services
-              </p>
-              <p class="text-xs text-muted-foreground">
-                Issued: 2025
-              </p>
-            </div>
-          </a>
-          <a
-            href="https://intranet.alxswe.com/certificates/mzS8cMH7re"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="bg-card border border-border rounded-xl p-4 sm:p-6 hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
-            style="animation-delay: 0.4s"
-          >
-            <div class="flex flex-col items-center text-center">
-              <div class="w-24 h-24 sm:w-32 sm:h-32 mb-4 group-hover:scale-110 transition-smooth">
-                <img
-                  src={`${base}/assets/Alx-badge.svg`}
-                  alt="ALX Data Science Certification"
-                  class="w-full h-full object-contain"
-                />
+            </a>
+          </StarBorderCard>
+          <StarBorderCard client:only="react" variant="secondary" className="animate-scale-in" style="animation-delay: 0.4s">
+            <a
+              href="https://intranet.alxswe.com/certificates/mzS8cMH7re"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block bg-card rounded-xl p-4 sm:p-6 hover-lift transition-smooth group"
+            >
+              <div class="flex flex-col items-center text-center">
+                <div class="w-24 h-24 sm:w-32 sm:h-32 mb-4 group-hover:scale-110 transition-smooth">
+                  <img
+                    src={`${base}/assets/Alx-badge.svg`}
+                    alt="ALX Data Science Certification"
+                    class="w-full h-full object-contain"
+                  />
+                </div>
+                <h4 class="text-base sm:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  Data Science Certification
+                </h4>
+                <p class="text-sm text-muted-foreground mb-3">
+                  ALX Africa
+                </p>
+                <p class="text-xs text-muted-foreground">
+                  Issued: 2024
+                </p>
               </div>
-              <h4 class="text-base sm:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                Data Science Certification
-              </h4>
-              <p class="text-sm text-muted-foreground mb-3">
-                ALX Africa
-              </p>
-              <p class="text-xs text-muted-foreground">
-                Issued: 2024
-              </p>
-            </div>
-          </a>
+            </a>
+          </StarBorderCard>
 
-          <a
-            href="https://intranet.alxswe.com/certificates/nCHmR67shJ"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="bg-card border border-border rounded-xl p-4 sm:p-6 hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
-            style="animation-delay: 0.5s"
-          >
-            <div class="flex flex-col items-center text-center">
-              <div class="w-24 h-24 sm:w-32 sm:h-32 mb-4 group-hover:scale-110 transition-smooth">
-                <img
-                  src={`${base}/assets/Alx-badge.svg`}
-                  alt="ALX Professional Skills Certification"
-                  class="w-full h-full object-contain"
-                />
+          <StarBorderCard client:only="react" variant="primary" className="animate-scale-in" style="animation-delay: 0.5s">
+            <a
+              href="https://intranet.alxswe.com/certificates/nCHmR67shJ"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block bg-card rounded-xl p-4 sm:p-6 hover-lift transition-smooth group"
+            >
+              <div class="flex flex-col items-center text-center">
+                <div class="w-24 h-24 sm:w-32 sm:h-32 mb-4 group-hover:scale-110 transition-smooth">
+                  <img
+                    src={`${base}/assets/Alx-badge.svg`}
+                    alt="ALX Professional Skills Certification"
+                    class="w-full h-full object-contain"
+                  />
+                </div>
+                <h4 class="text-base sm:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  Professional Skills Certification
+                </h4>
+                <p class="text-sm text-muted-foreground mb-3">
+                  ALX Africa
+                </p>
+                <p class="text-xs text-muted-foreground">
+                  Issued: 2024
+                </p>
               </div>
-              <h4 class="text-base sm:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                Professional Skills Certification
-              </h4>
-              <p class="text-sm text-muted-foreground mb-3">
-                ALX Africa
-              </p>
-              <p class="text-xs text-muted-foreground">
-                Issued: 2024
-              </p>
-            </div>
-          </a>
+            </a>
+          </StarBorderCard>
 
-          <button
-            type="button"
-            data-cert-pdf={`${base}/assets/Blossom-DataScience-cert.pdf`}
-            data-cert-title="Data Science Certification"
-            class="cert-button bg-card border border-border rounded-xl p-4 sm:p-6 hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
-            style="animation-delay: 0.2s"
-          >
-            <div class="flex flex-col items-center text-center">
-              <div class="w-24 h-24 sm:w-32 sm:h-32 mb-4 group-hover:scale-110 transition-smooth">
-                <img
-                  src={`${base}/assets/blossom-badge.png`}
-                  alt="Data Science Certification"
-                  class="w-full h-full object-contain"
-                />
+          <StarBorderCard client:only="react" variant="secondary" className="animate-scale-in" style="animation-delay: 0.2s">
+            <button
+              type="button"
+              data-cert-pdf={`${base}/assets/Blossom-DataScience-cert.pdf`}
+              data-cert-title="Data Science Certification"
+              class="cert-button w-full bg-card rounded-xl p-4 sm:p-6 hover-lift transition-smooth group"
+            >
+              <div class="flex flex-col items-center text-center">
+                <div class="w-24 h-24 sm:w-32 sm:h-32 mb-4 group-hover:scale-110 transition-smooth">
+                  <img
+                    src={`${base}/assets/blossom-badge.png`}
+                    alt="Data Science Certification"
+                    class="w-full h-full object-contain"
+                  />
+                </div>
+                <h4 class="text-base sm:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  Data Science Certification
+                </h4>
+                <p class="text-sm text-muted-foreground mb-3">
+                  Blossom Academy
+                </p>
+                <p class="text-xs text-muted-foreground">
+                  Issued: 2022
+                </p>
               </div>
-              <h4 class="text-base sm:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                Data Science Certification
-              </h4>
-              <p class="text-sm text-muted-foreground mb-3">
-                Blossom Academy
-              </p>
-              <p class="text-xs text-muted-foreground">
-                Issued: 2022
-              </p>
-            </div>
-          </button>
+            </button>
+          </StarBorderCard>
 
-          <button
-            type="button"
-            data-cert-pdf={`${base}/assets/Blossom-DataAnalysis-cert.pdf`}
-            data-cert-title="Data Analysis Certification"
-            class="cert-button bg-card border border-border rounded-xl p-4 sm:p-6 hover-lift hover:border-primary/50 transition-smooth animate-scale-in group"
-            style="animation-delay: 0.3s"
-          >
-            <div class="flex flex-col items-center text-center">
-              <div class="w-24 h-24 sm:w-32 sm:h-32 mb-4 group-hover:scale-110 transition-smooth">
-                <img
-                  src={`${base}/assets/blossom-badge.png`}
-                  alt="Data Analysis Certification"
-                  class="w-full h-full object-contain"
-                />
+          <StarBorderCard client:only="react" variant="primary" className="animate-scale-in" style="animation-delay: 0.3s">
+            <button
+              type="button"
+              data-cert-pdf={`${base}/assets/Blossom-DataAnalysis-cert.pdf`}
+              data-cert-title="Data Analysis Certification"
+              class="cert-button w-full bg-card rounded-xl p-4 sm:p-6 hover-lift transition-smooth group"
+            >
+              <div class="flex flex-col items-center text-center">
+                <div class="w-24 h-24 sm:w-32 sm:h-32 mb-4 group-hover:scale-110 transition-smooth">
+                  <img
+                    src={`${base}/assets/blossom-badge.png`}
+                    alt="Data Analysis Certification"
+                    class="w-full h-full object-contain"
+                  />
+                </div>
+                <h4 class="text-base sm:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  Data Analysis Certification
+                </h4>
+                <p class="text-sm text-muted-foreground mb-3">
+                  Blossom Academy
+                </p>
+                <p class="text-xs text-muted-foreground">
+                  Issued: 2022
+                </p>
               </div>
-              <h4 class="text-base sm:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                Data Analysis Certification
-              </h4>
-              <p class="text-sm text-muted-foreground mb-3">
-                Blossom Academy
-              </p>
-              <p class="text-xs text-muted-foreground">
-                Issued: 2022
-              </p>
-            </div>
-          </button>
+            </button>
+          </StarBorderCard>
 
         </div>
       </div>
