@@ -1,0 +1,254 @@
+---
+const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+
+const navItems = [
+  { id: 'rd-1', label: 'Home', href: base || '/', index: 0 },
+  { id: 'rd-2', label: 'About', href: `${base}/about`, index: 1 },
+  { id: 'rd-3', label: 'Projects', href: `${base}/projects`, index: 2 },
+  { id: 'rd-4', label: 'Blog', href: `${base}/blog`, index: 3 },
+  { id: 'rd-5', label: 'Contact', href: `${base}/contact`, index: 4 }
+];
+
+const isActive = (href: string) => {
+  const normalizedPath = currentPath.endsWith('/') ? currentPath.slice(0, -1) : currentPath;
+  const normalizedBase = base.endsWith('/') ? base.slice(0, -1) : base;
+  const normalizedHref = href.endsWith('/') ? href.slice(0, -1) : href;
+
+  if (normalizedPath === normalizedHref) return true;
+  if (normalizedHref === normalizedBase && normalizedPath === normalizedBase) return true;
+  if (normalizedHref === `${normalizedBase}/blog` && normalizedPath.startsWith(`${normalizedBase}/blog`)) return true;
+
+  return false;
+};
+
+const activeItem = navItems.find(item => isActive(item.href)) || navItems[0];
+---
+
+<div class="animated-nav-wrap">
+  {navItems.map((item) => (
+    <>
+      <input
+        hidden
+        class={`radio ${item.id}`}
+        name="radio"
+        id={item.id}
+        type="radio"
+        checked={item.id === activeItem.id}
+      />
+      <label style={`--index: ${item.index};`} class="nav-label" for={item.id}>
+        <a href={item.href} class="nav-label-link">
+          <span>{item.label}</span>
+        </a>
+      </label>
+    </>
+  ))}
+
+  <div class="bar"></div>
+  <div class="slidebar"></div>
+</div>
+
+<style>
+  /* Main wrapper */
+  .animated-nav-wrap {
+    --round: 10px;
+    --p-x: 8px;
+    --p-y: 4px;
+    --w-label: 100px;
+    display: flex;
+    align-items: center;
+    padding: var(--p-y) var(--p-x);
+    position: relative;
+    background: var(--nav-bg, rgba(255, 255, 255, 0.4));
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--border, hsl(240 6% 90%));
+    border-radius: var(--round);
+    box-shadow: 0 2px 8px var(--nav-shadow, hsla(262, 80%, 50%, 0.15));
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .animated-nav-wrap::-webkit-scrollbar {
+    display: none;
+  }
+
+  :global(.dark) .animated-nav-wrap {
+    --nav-bg: rgba(9, 9, 11, 0.4);
+    --border: hsl(240 4% 16%);
+    --nav-shadow: hsla(262, 80%, 50%, 0.2);
+    --color-secondary: hsl(0 0% 90%);
+    --color-pure: hsl(0 0% 100%);
+    --color-muted: hsl(240 4% 16%);
+  }
+
+  :global(:not(.dark)) .animated-nav-wrap {
+    --color-secondary: hsl(240 10% 10%);
+    --color-pure: hsl(0 0% 0%);
+    --color-muted: hsl(240 5% 84%);
+  }
+
+  .radio {
+    height: 0;
+    width: 0;
+    position: absolute;
+    overflow: hidden;
+    display: none;
+    visibility: hidden;
+  }
+
+  .nav-label {
+    cursor: pointer;
+    outline: none;
+    font-size: 0.875rem;
+    letter-spacing: initial;
+    font-weight: 500;
+    color: var(--color-secondary);
+    background: transparent;
+    padding: 12px 16px;
+    width: var(--w-label);
+    min-width: var(--w-label);
+    text-decoration: none;
+    user-select: none;
+    transition: color 0.25s ease;
+    outline-offset: -6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .nav-label-link {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-label span {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .radio:checked + .nav-label {
+    color: var(--color-pure);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: absolute;
+    transform-origin: 0 0 0;
+    height: 100%;
+    width: var(--w-label);
+    z-index: 0;
+    transition: transform 0.5s cubic-bezier(0.33, 0.83, 0.99, 0.98);
+    pointer-events: none;
+  }
+
+  .bar::before,
+  .bar::after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: var(--color-secondary);
+  }
+
+  .bar::before {
+    top: 0;
+    border-radius: 0 0 9999px 9999px;
+  }
+
+  .bar::after {
+    bottom: 0;
+    border-radius: 9999px 9999px 0 0;
+  }
+
+  .slidebar {
+    position: absolute;
+    height: calc(100% - (var(--p-y) * 4));
+    width: var(--w-label);
+    border-radius: calc(var(--round) - var(--p-y));
+    background: var(--color-muted);
+    transform-origin: 0 0 0;
+    z-index: 0;
+    transition: transform 0.5s cubic-bezier(0.33, 0.83, 0.99, 0.98);
+    pointer-events: none;
+  }
+
+  /* Transform rules for 5 items */
+  .rd-1:checked ~ .bar,
+  .rd-1:checked ~ .slidebar {
+    transform: translateX(0) scaleX(1);
+  }
+
+  .rd-2:checked ~ .bar,
+  .rd-2:checked ~ .slidebar {
+    transform: translateX(100%) scaleX(1);
+  }
+
+  .rd-3:checked ~ .bar,
+  .rd-3:checked ~ .slidebar {
+    transform: translateX(200%) scaleX(1);
+  }
+
+  .rd-4:checked ~ .bar,
+  .rd-4:checked ~ .slidebar {
+    transform: translateX(300%) scaleX(1);
+  }
+
+  .rd-5:checked ~ .bar,
+  .rd-5:checked ~ .slidebar {
+    transform: translateX(400%) scaleX(1);
+  }
+
+  /* Hover effects for slidebar */
+  .rd-1 + .nav-label:hover ~ .slidebar {
+    transform: translateX(0) scaleX(1);
+  }
+
+  .rd-2 + .nav-label:hover ~ .slidebar {
+    transform: translateX(100%) scaleX(1);
+  }
+
+  .rd-3 + .nav-label:hover ~ .slidebar {
+    transform: translateX(200%) scaleX(1);
+  }
+
+  .rd-4 + .nav-label:hover ~ .slidebar {
+    transform: translateX(300%) scaleX(1);
+  }
+
+  .rd-5 + .nav-label:hover ~ .slidebar {
+    transform: translateX(400%) scaleX(1);
+  }
+</style>
+
+<script>
+  // Handle navigation on label click
+  document.addEventListener('DOMContentLoaded', () => {
+    const labels = document.querySelectorAll('.nav-label');
+
+    labels.forEach(label => {
+      label.addEventListener('click', (e) => {
+        const link = label.querySelector('a');
+        if (link) {
+          // Let the browser handle the navigation
+          // The radio button will update automatically
+        }
+      });
+    });
+  });
+</script>

@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
+import AnimatedNav from './AnimatedNav.astro';
 
 const currentPath = Astro.url.pathname;
 const base = import.meta.env.BASE_URL;
@@ -30,29 +31,18 @@ const isActive = (href: string) => {
 </div>
 
 <header class="fixed top-0 left-0 right-0 z-50 p-2 sm:p-4">
-  <nav class="max-w-6xl mx-auto nav-container">
-    <div class="flex items-center justify-between gap-4 px-4 sm:px-6 py-3 sm:py-4">
-      <!-- Desktop Navigation -->
-      <ul class="hidden md:flex items-center justify-center gap-1 lg:gap-2 mx-auto">
-        {navItems.map((item) => (
-          <li>
-            <a
-              href={item.href}
-              class:list={[
-                'nav-link',
-                { 'nav-link-active': isActive(item.href) }
-              ]}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
+  <!-- Desktop Navigation with AnimatedNav -->
+  <nav class="max-w-6xl mx-auto hidden md:flex justify-center">
+    <AnimatedNav />
+  </nav>
 
+  <!-- Mobile Navigation -->
+  <nav class="md:hidden max-w-6xl mx-auto nav-container">
+    <div class="flex items-center justify-between gap-4 px-4 sm:px-6 py-3 sm:py-4">
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-button"
-        class="md:hidden mobile-menu-button"
+        class="mobile-menu-button"
         aria-label="Toggle mobile menu"
         aria-expanded="false"
       >
@@ -101,6 +91,7 @@ const isActive = (href: string) => {
     }
   }
 
+  /* Mobile navigation container */
   .nav-container {
     background: var(--nav-bg, rgba(255, 255, 255, 0.4));
     backdrop-filter: blur(24px);
@@ -115,36 +106,6 @@ const isActive = (href: string) => {
     --nav-bg: rgba(9, 9, 11, 0.4);
     --border: hsl(240 4% 16%);
     --nav-shadow: hsla(262, 80%, 50%, 0.2);
-  }
-
-  .nav-link {
-    position: relative;
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    color: var(--foreground);
-    text-decoration: none;
-    border-radius: 9999px;
-    transition: all 0.3s ease;
-  }
-
-  .nav-link:hover {
-    color: var(--primary);
-    background: var(--accent);
-    transform: translateY(-1px);
-  }
-
-  .nav-link-active {
-    color: var(--primary-foreground);
-    background: var(--primary);
-    font-weight: 600;
-  }
-
-  .nav-link-active:hover {
-    color: var(--primary-foreground);
-    background: var(--primary);
-    transform: none;
   }
 
   .mobile-menu-button {
