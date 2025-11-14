@@ -4,6 +4,9 @@ import { getCollection } from 'astro:content';
 
 const base = import.meta.env.BASE_URL;
 
+// Redirect to under construction page
+return Astro.redirect(`${base}/under-construction`);
+
 const allPosts = await getCollection('blog', ({ data }) => {
   return data.draft !== true;
 });
