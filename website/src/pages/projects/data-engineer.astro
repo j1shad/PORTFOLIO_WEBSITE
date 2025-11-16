@@ -1,12 +1,13 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Footer from "../../components/Footer.astro";
+import TechIcon from "../../components/TechIcon";
 
 const base = import.meta.env.BASE_URL;
 
 const projects = [
   {
-    title: "Real-Time Data Pipeline",
+    title: "Movie Data Pipeline",
     description:
       "Scalable streaming data pipeline processing millions of events daily using Kafka and Spark. Implemented efficient data transformations and real-time analytics with sub-second latency.",
     technologies: [
@@ -16,13 +17,15 @@ const projects = [
       "AWS",
       "PostgreSQL",
     ],
-    githubUrl: "https://github.com/j1shad/data-pipeline",
+    image: "https://www.mu-sigma.com/wp-content/uploads/2025/04/The-Ultimate-Guide-to-Data-Pipelines.webp",
+    githubUrl: "https://github.com/j1shad/movie-data-pipeline.git",
   },
   {
     title: "Data Lake Architecture",
     description:
       "Designed and implemented a modern data lake on AWS with efficient data partitioning, cataloging, and governance. Enables self-service analytics for multiple teams.",
     technologies: ["AWS S3", "Glue", "Athena", "Lake Formation", "Terraform"],
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
     githubUrl: "https://github.com/j1shad/data-lake",
   },
   {
@@ -30,6 +33,7 @@ const projects = [
     description:
       "Built robust ETL pipelines using Apache Airflow for orchestrating complex data workflows. Automated data quality checks and monitoring across multiple data sources.",
     technologies: ["Apache Airflow", "Python", "Docker", "PostgreSQL", "AWS"],
+    image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&h=400&fit=crop",
     githubUrl: "https://github.com/j1shad/etl-platform",
   },
   {
@@ -37,6 +41,7 @@ const projects = [
     description:
       "Designed scalable data processing framework using Spark for batch and streaming workloads. Optimized performance for processing terabytes of data efficiently.",
     technologies: ["Apache Spark", "Scala", "Databricks", "Delta Lake", "AWS"],
+    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&h=400&fit=crop",
     githubUrl: "https://github.com/j1shad/spark-processing",
   },
 ];
@@ -104,11 +109,13 @@ const projects = [
                 class={`bg-card border border-border rounded-xl overflow-hidden hover-lift transition-smooth animate-scale-in`}
                 style={`animation-delay: ${index * 0.1}s`}
               >
-                <div class="h-40 sm:h-48 bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10 flex items-center justify-center border-b border-border relative overflow-hidden">
-                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent animate-pulse" />
-                  <div class="relative text-primary/30 text-5xl sm:text-6xl font-bold">
-                    {index + 1}
-                  </div>
+                <div class="h-40 sm:h-48 border-b border-border relative overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
 
                 <div class="p-4 sm:p-6">
@@ -120,11 +127,9 @@ const projects = [
                     {project.description}
                   </p>
 
-                  <div class="flex flex-wrap gap-2 mb-6">
+                  <div class="flex flex-wrap gap-3 mb-6">
                     {project.technologies.map((tech) => (
-                      <span class="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-xs transition-smooth hover:scale-105">
-                        {tech}
-                      </span>
+                      <TechIcon techName={tech} size={32} client:load />
                     ))}
                   </div>
 

@@ -1,4 +1,6 @@
 ---
+import TechIcon from './TechIcon';
+
 const projects = [
   {
     title: "Real-Time Data Pipeline",
@@ -12,7 +14,7 @@ const projects = [
       "PostgreSQL",
     ],
     category: "Data Engineering",
-    image: "/api/placeholder/400/250",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
     githubUrl: "https://github.com/j1shad/data-pipeline",
   },
   {
@@ -21,7 +23,7 @@ const projects = [
       "End-to-end analytics solution with automated ETL pipelines, dimensional modeling, and interactive dashboards. Reduced reporting time by 70% and improved data quality.",
     technologies: ["Airflow", "dbt", "Snowflake", "Tableau", "Python"],
     category: "Analytics",
-    image: "/api/placeholder/400/250",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
     githubUrl: "https://github.com/j1shad/analytics-platform",
   },
   {
@@ -30,7 +32,7 @@ const projects = [
       "Automated ML model training and deployment pipeline with monitoring and A/B testing capabilities. Handles feature engineering, model versioning, and serving predictions at scale.",
     technologies: ["MLflow", "Docker", "FastAPI", "Scikit-learn", "AWS"],
     category: "Machine Learning",
-    image: "/api/placeholder/400/250",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
     githubUrl: "https://github.com/j1shad/ml-pipeline",
   },
   {
@@ -39,7 +41,7 @@ const projects = [
       "Designed and implemented a modern data lake on AWS with efficient data partitioning, cataloging, and governance. Enables self-service analytics for multiple teams.",
     technologies: ["AWS S3", "Glue", "Athena", "Lake Formation", "Terraform"],
     category: "Data Engineering",
-    image: "/api/placeholder/400/250",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
     githubUrl: "https://github.com/j1shad/data-lake",
   },
 ];
@@ -64,11 +66,13 @@ const projects = [
               class="bg-card border border-border rounded-xl overflow-hidden hover-lift transition-smooth animate-scale-in"
               style={`animation-delay: ${index * 0.1}s`}
             >
-              <div class="h-48 bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10 flex items-center justify-center border-b border-border relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent animate-pulse" />
-                <div class="relative text-primary/30 text-6xl font-bold">
-                  {index + 1}
-                </div>
+              <div class="h-40 sm:h-48 border-b border-border relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
 
               <div class="p-6">
@@ -85,11 +89,9 @@ const projects = [
                   {project.description}
                 </p>
 
-                <div class="flex flex-wrap gap-2 mb-6">
+                <div class="flex flex-wrap gap-3 mb-6">
                   {project.technologies.map((tech) => (
-                    <span class="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-xs transition-smooth hover:scale-105">
-                      {tech}
-                    </span>
+                    <TechIcon techName={tech} size={32} client:load />
                   ))}
                 </div>
 

@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Footer from "../../components/Footer.astro";
+import TechIcon from "../../components/TechIcon";
 
 const base = import.meta.env.BASE_URL;
 
@@ -10,6 +11,7 @@ const projects = [
     description:
       "Automated ML model training and deployment pipeline with monitoring and A/B testing capabilities. Handles feature engineering, model versioning, and serving predictions at scale.",
     technologies: ["MLflow", "Docker", "FastAPI", "Scikit-learn", "AWS"],
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
     githubUrl: "https://github.com/j1shad/ml-pipeline",
   },
   {
@@ -17,6 +19,7 @@ const projects = [
     description:
       "Developed machine learning models to predict customer churn with 92% accuracy. Implemented feature engineering pipeline and automated retraining workflow.",
     technologies: ["Python", "XGBoost", "Pandas", "Scikit-learn", "Jupyter"],
+    image: "https://images.unsplash.com/photo-1527474305487-b87b222841cc?w=800&h=400&fit=crop",
     githubUrl: "https://github.com/j1shad/churn-prediction",
   },
   {
@@ -24,6 +27,7 @@ const projects = [
     description:
       "Built NLP pipeline for sentiment analysis and topic modeling on customer feedback. Processed millions of text documents with 85% accuracy using transformer models.",
     technologies: ["PyTorch", "Transformers", "spaCy", "Python", "BERT"],
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=400&fit=crop",
     githubUrl: "https://github.com/j1shad/nlp-engine",
   },
 ];
@@ -91,11 +95,13 @@ const projects = [
                 class={`bg-card border border-border rounded-xl overflow-hidden hover-lift transition-smooth animate-scale-in`}
                 style={`animation-delay: ${index * 0.1}s`}
               >
-                <div class="h-40 sm:h-48 bg-gradient-to-br from-primary/10 via-pink-500/5 to-primary/10 flex items-center justify-center border-b border-border relative overflow-hidden">
-                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-pink-500/5 to-transparent animate-pulse" />
-                  <div class="relative text-pink-500/30 text-5xl sm:text-6xl font-bold">
-                    {index + 1}
-                  </div>
+                <div class="h-40 sm:h-48 border-b border-border relative overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
 
                 <div class="p-4 sm:p-6">
@@ -107,11 +113,9 @@ const projects = [
                     {project.description}
                   </p>
 
-                  <div class="flex flex-wrap gap-2 mb-6">
+                  <div class="flex flex-wrap gap-3 mb-6">
                     {project.technologies.map((tech) => (
-                      <span class="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-xs transition-smooth hover:scale-105">
-                        {tech}
-                      </span>
+                      <TechIcon techName={tech} size={32} client:load />
                     ))}
                   </div>
 
