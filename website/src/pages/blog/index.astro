@@ -12,6 +12,6 @@ const base = import.meta.env.BASE_URL;
 <script define:vars={{ base }}>
   // Redirect to under construction page after showing loader
   setTimeout(() => {
-    window.location.href = `${base}/under-construction`;
-  }, 1500);
+    window.location.href = `${base}/under-construction?from=blog`;
+  }, 4000);
 </script>
