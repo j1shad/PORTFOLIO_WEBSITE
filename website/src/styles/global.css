@@ -33,6 +33,13 @@
     --chart-3: 280 90% 65%;
     --chart-4: 38 92% 50%;
     --chart-5: 340 75% 55%;
+
+    /* Loader-specific variables */
+    --bg: #FFFFFF;
+    --primary1: #A855F7;
+    --primary2: #C084FC;
+    --fg-t: rgba(24, 24, 27, 0.6);
+    --trans-dur: 0.3s;
   }
 
   /* Dark theme - Minimalist and professional with purple accents (default) */
@@ -66,6 +73,13 @@
     --chart-3: 280 90% 65%;
     --chart-4: 38 92% 50%;
     --chart-5: 340 75% 55%;
+
+    /* Loader-specific variables */
+    --bg: #09090B;
+    --primary1: #A855F7;
+    --primary2: #7C3AED;
+    --fg-t: rgba(228, 228, 231, 0.6);
+    --trans-dur: 0.3s;
   }
 
   /* Global base styles for minimalist aesthetic */
