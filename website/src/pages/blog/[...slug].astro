@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Loader from '../../components/Loader.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -14,161 +15,16 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
 const base = import.meta.env.BASE_URL;
-
-// Redirect to under construction page
-return Astro.redirect(`${base}/under-construction`);
-
-function formatDate(date: Date) {
-  return new Intl.DateTimeFormat('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  }).format(date);
-}
-
-function getReadingTime(content: string) {
-  const wordsPerMinute = 200;
-  const wordCount = content.split(/\s+/).length;
-  const readingTime = Math.ceil(wordCount / wordsPerMinute);
-  return readingTime;
-}
 ---
 
 <Layout title={`${entry.data.title} - Jason Acquah`}>
-  <main class="min-h-screen bg-background pt-20 sm:pt-32 pb-20">
-    <article class="container mx-auto px-4 sm:px-6">
-      <div class="max-w-3xl mx-auto">
-        <header class="mb-12">
-          <a
-            href={`${base}/blog`}
-            class="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
-          >
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-            </svg>
-            Back to Blog
-          </a>
-
-          <div class="flex items-center gap-3 mb-4">
-            <time class="text-sm text-muted-foreground">
-              {formatDate(entry.data.publishDate)}
-            </time>
-            <span class="text-muted-foreground">•</span>
-            <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">
-              {entry.data.category}
-            </span>
-          </div>
-
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-            {entry.data.title}
-          </h1>
-
-          <p class="text-xl text-muted-foreground mb-6">
-            {entry.data.description}
-          </p>
-
-          <div class="flex items-center gap-4 text-sm text-muted-foreground">
-            <span>By {entry.data.author}</span>
-          </div>
-        </header>
-
-        <div class="prose sm:prose-lg dark:prose-invert max-w-none">
-          <Content />
-        </div>
-
-        <footer class="mt-12 pt-8 border-t border-border">
-          <div class="flex flex-wrap gap-2">
-            {entry.data.tags.map((tag) => (
-              <span class="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm">
-                #{tag}
-              </span>
-            ))}
-          </div>
-        </footer>
-      </div>
-    </article>
-  </main>
+  <Loader />
 </Layout>
 
-<style is:global>
-  .prose {
-    color: hsl(var(--foreground));
-  }
-
-  .prose h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: hsl(var(--foreground));
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .prose h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: hsl(var(--foreground));
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .prose p {
-    color: hsl(var(--muted-foreground));
-    line-height: 1.75;
-    margin-bottom: 1rem;
-  }
-
-  .prose a {
-    color: hsl(var(--primary));
-    text-decoration: underline;
-  }
-
-  .prose a:hover {
-    text-decoration: none;
-  }
-
-  .prose code {
-    background-color: hsl(var(--secondary));
-    padding: 0.125rem 0.5rem;
-    border-radius: 0.25rem;
-    font-size: 0.875rem;
-  }
-
-  .prose pre {
-    background-color: hsl(var(--card));
-    border: 1px solid hsl(var(--border));
-    border-radius: 0.5rem;
-    padding: 1rem;
-    overflow-x: auto;
-    margin: 1.5rem 0;
-  }
-
-  .prose pre code {
-    background-color: transparent;
-    padding: 0;
-  }
-
-  .prose ul, .prose ol {
-    color: hsl(var(--muted-foreground));
-    margin-bottom: 1rem;
-    margin-left: 1.5rem;
-  }
-
-  .prose li {
-    margin-bottom: 0.5rem;
-  }
-
-  .prose strong {
-    color: hsl(var(--foreground));
-    font-weight: 600;
-  }
-
-  .prose blockquote {
-    border-left: 4px solid hsl(var(--primary));
-    padding-left: 1rem;
-    font-style: italic;
-    color: hsl(var(--muted-foreground));
-    margin: 1.5rem 0;
-  }
-</style>
+<script define:vars={{ base }}>
+  // Redirect to under construction page after showing loader
+  setTimeout(() => {
+    window.location.href = `${base}/under-construction`;
+  }, 1500);
+</script>
