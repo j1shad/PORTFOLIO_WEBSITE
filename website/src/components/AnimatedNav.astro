@@ -18,6 +18,7 @@ const isActive = (href: string) => {
   if (normalizedPath === normalizedHref) return true;
   if (normalizedHref === normalizedBase && normalizedPath === normalizedBase) return true;
   if (normalizedHref === `${normalizedBase}/blog` && normalizedPath.startsWith(`${normalizedBase}/blog`)) return true;
+  if (normalizedHref === `${normalizedBase}/projects` && normalizedPath.startsWith(`${normalizedBase}/projects`)) return true;
 
   return false;
 };
