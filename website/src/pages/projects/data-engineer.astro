@@ -9,41 +9,37 @@ const projects = [
   {
     title: "Movie Data Pipeline",
     description:
-      "Scalable streaming data pipeline processing millions of events daily using Kafka and Spark. Implemented efficient data transformations and real-time analytics with sub-second latency.",
+      "Robust, end-to-end pipeline for extracting, cleaning, and analyzing The Movie Database (TMDb) data. Delivers actionable KPIs like ROI and Director Performance with clear data visualizations.",
     technologies: [
-      "Apache Kafka",
-      "Spark Streaming",
-      "Python",
-      "AWS",
-      "PostgreSQL",
+      "Python"
     ],
     image: "https://www.mu-sigma.com/wp-content/uploads/2025/04/The-Ultimate-Guide-to-Data-Pipelines.webp",
     githubUrl: "https://github.com/j1shad/movie-data-pipeline.git",
   },
   {
-    title: "Data Lake Architecture",
+    title: "Cloud-Native Rental Data Analytics (AWS EMR & Spark)",
     description:
-      "Designed and implemented a modern data lake on AWS with efficient data partitioning, cataloging, and governance. Enables self-service analytics for multiple teams.",
-    technologies: ["AWS S3", "Glue", "Athena", "Lake Formation", "Terraform"],
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
-    githubUrl: "https://github.com/j1shad/data-lake",
+      "Fully automated ETL pipeline on AWS leveraging Step Functions, EMR, and PySpark for big data processing. Transforms raw car rental data into a queried data lake (Glue/Athena), delivering 5 critical business KPIs including Daily Revenue and User Engagement for immediate, actionable insights.",
+    technologies: ["Spark"],
+    image: "https://www.startdataengineering.com/post/how-to-submit-spark-jobs-to-emr-cluster-from-airflow/spark_submit_design.png",
+    githubUrl: "https://github.com/jas2acq/LAB4_BIG_DATA_PROCESSING_WITH_EMR/tree/dev",
   },
   {
-    title: "ETL Orchestration Platform",
+    title: "Cloud-Native Delta Lakehouse (S3, Glue, Step Functions)",
     description:
-      "Built robust ETL pipelines using Apache Airflow for orchestrating complex data workflows. Automated data quality checks and monitoring across multiple data sources.",
-    technologies: ["Apache Airflow", "Python", "Docker", "PostgreSQL", "AWS"],
-    image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&h=400&fit=crop",
-    githubUrl: "https://github.com/j1shad/etl-platform",
+      "Event-driven Lakehouse ETL pipeline built on AWS. It uses Lambda to trigger Step Functions on S3 file arrival, orchestrating AWS Glue/PySpark jobs to extract, transform, and incrementally load e-commerce data (Products, Orders) into Delta Lake tables. The system ensures data quality (schema enforcement, deduplication) and automates deployment via GitHub Actions CI/CD",
+    technologies: ["Spark"],
+    image: "https://media.istockphoto.com/id/2080898894/vector/data-lakehouse-as-system-combination-from-warehouse-and-lake-outline-diagram.jpg?s=612x612&w=0&k=20&c=nJMpaTkyMToWoFlVXhAAd8XfRf2gy0r2oHbAzCvyjyM=",
+    githubUrl: "https://github.com/jas2acq/LAB5_LAKEHOUSE_ARCHITECTURE_FOR_E-COMMERCE_TRANSACTIONS.git",
   },
-  {
-    title: "Distributed Data Processing",
-    description:
-      "Designed scalable data processing framework using Spark for batch and streaming workloads. Optimized performance for processing terabytes of data efficiently.",
-    technologies: ["Apache Spark", "Scala", "Databricks", "Delta Lake", "AWS"],
-    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&h=400&fit=crop",
-    githubUrl: "https://github.com/j1shad/spark-processing",
-  },
+  // {
+  //   title: "Distributed Data Processing",
+  //   description:
+  //     "Designed scalable data processing framework using Spark for batch and streaming workloads. Optimized performance for processing terabytes of data efficiently.",
+  //   technologies: ["Apache Spark", "Scala", "Databricks", "Delta Lake", "AWS"],
+  //   image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&h=400&fit=crop",
+  //   githubUrl: "https://github.com/j1shad/spark-processing",
+  // },
 ];
 ---
 

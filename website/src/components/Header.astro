@@ -212,4 +212,26 @@ const isActive = (href: string) => {
       closeIcon?.classList.add('hidden');
     });
   });
+
+  // Update mobile nav active state based on 'from' query parameter
+  const urlParams = new URLSearchParams(window.location.search);
+  const fromParam = urlParams.get('from');
+
+  const pathname = window.location.pathname;
+  const isUnderConstruction = pathname.includes('/under-construction');
+
+  if (isUnderConstruction && fromParam) {
+    // Remove active class from all mobile nav links
+    mobileLinks?.forEach(link => {
+      link.classList.remove('mobile-nav-link-active');
+    });
+
+    // Add active class to the link that matches the 'from' parameter
+    mobileLinks?.forEach(link => {
+      const linkText = link.textContent?.trim().toLowerCase();
+      if (linkText === fromParam.toLowerCase()) {
+        link.classList.add('mobile-nav-link-active');
+      }
+    });
+  }
 </script>

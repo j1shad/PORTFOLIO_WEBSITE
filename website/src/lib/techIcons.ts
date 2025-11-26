@@ -11,6 +11,7 @@ import {
   SiDocker,
   SiGit,
   SiTableau,
+  SiGithubactions,
 } from 'react-icons/si';
 
 export interface TechIconConfig {
