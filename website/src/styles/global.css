@@ -186,4 +186,29 @@
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
   }
+
+  /* Subtle hover effect for navigation and utility buttons */
+  .hover-lift-subtle {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift-subtle:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Respect user motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .hover-lift-subtle,
+    .hover-lift {
+      transition: none;
+    }
+
+    .hover-lift-subtle:hover,
+    .hover-lift:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
 }
